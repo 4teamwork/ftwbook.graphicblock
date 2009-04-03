@@ -20,4 +20,10 @@
 
     </class>
 
+    <!-- let GraphicBlock implement ISimpleLayoutBlock (izug.simplelayout) -->
+    <five:implements
+        class=".graphicblock.GraphicBlock"
+        interface="izug.simplelayout.interfaces.ISimpleLayoutBlock"
+        />
+
 </configure>

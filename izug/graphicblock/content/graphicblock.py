@@ -143,7 +143,13 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 # they work well with the python bridge properties.
 
 GraphicBlockSchema['title'].storage = atapi.AnnotationStorage()
+GraphicBlockSchema['title'].required = False
+GraphicBlockSchema['title'].searchable = False
+
 GraphicBlockSchema['description'].storage = atapi.AnnotationStorage()
+GraphicBlockSchema['description'].widget.visible = {'edit': 0, 'view': 0}
+
+GraphicBlockSchema['excludeFromNav'].default = True
 
 schemata.finalizeATCTSchema(GraphicBlockSchema, moveDiscussion=False)
 
@@ -154,7 +160,17 @@ class GraphicBlock(base.ATCTContent):
     portal_type = "GraphicBlock"
     schema = GraphicBlockSchema
 
+    # ATFolder
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
+
+    # GraphicBlock
+    graphic = atapi.ATFieldProperty('graphic')
+    graphic_preview = atapi.ATFieldProperty('graphic_preview')
+    width = atapi.ATFieldProperty('width')
+    trim_top = atapi.ATFieldProperty('trim_top')
+    trim_right = atapi.ATFieldProperty('trim_right')
+    trim_bottom = atapi.ATFieldProperty('trim_bottom')
+    trim_left = atapi.ATFieldProperty('trim_left')
 
 atapi.registerType(GraphicBlock, PROJECTNAME)

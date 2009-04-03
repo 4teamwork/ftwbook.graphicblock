@@ -1,0 +1,7 @@
+<div class="#" id="#"
+				tal:attributes="id here/id">
+    <a tal:attributes="href here/absolute_url;
+                       name here/id">
+        <h3 tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
+    </a>
+</div>

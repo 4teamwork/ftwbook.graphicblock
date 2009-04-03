@@ -1,10 +1,39 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="izug.graphicblock">
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        i18n_domain="izug.graphicblock">
 
     <include package="plone.app.contentmenu" />
 
-    <!-- -*- extra stuff goes here -*- -->
+    <!-- GraphicBlock uses block view -->
+    <browser:page
+            for="..interfaces.IGraphicBlock"
+            name="block_view"
+            permission="zope2.View"
+            class="izug.block.browser.views.BlockView" />
+
+    <!-- GraphicBlock: simplelayout -->
+    <browser:viewletManager
+            name="izug.graphicblock"
+            provides="..interfaces.ISimpleViewletGraphicBlockProvider"
+            permission="zope2.View"
+            class="plone.app.viewletmanager.manager.OrderedViewletManager"
+            />
+
+    <browser:viewlet
+            name="izug.graphicblock.controls"
+            manager="..interfaces.ISimpleViewletGraphicBlockProvider"
+            class="izug.simplelayout.viewlets.SimpleLayoutControlsViewlet"
+            permission="cmf.ModifyPortalContent"
+            layer="izug.theme.browser.interfaces.IThemeSpecific"
+            />
+ 
+    <browser:viewlet
+            name="izug.graphicblock.content"
+            manager="..interfaces.ISimpleViewletGraphicBlockProvider"
+            class=".viewlets.SimpleLayoutGraphicBlockViewlet"
+            permission="zope2.View"
+            layer="izug.theme.browser.interfaces.IThemeSpecific"
+            />
 
 </configure>

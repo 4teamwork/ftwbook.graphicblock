@@ -13,9 +13,9 @@
   <property name="global_allow">False</property>
   <property name="filter_content_types">False</property>
   <property name="allow_discussion">False</property>
-  <property name="default_view">base_view</property>
+  <property name="default_view">block_view</property>
   <property name="view_methods">
-    <element value="base_view" />
+    <element value="block_view" />
   </property>
   <alias from="(Default)" to="(dynamic view)" />
   <alias from="edit" to="atct_edit" />
@@ -28,5 +28,26 @@
   <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content" />
+  </action>
+  <action title="Edit" action_id="sl-edit" category="sl-actions"
+     condition_expr="" url_expr="string:${object_url}/edit" visible="True">
+   <permission value="Modify portal content"/>
+  </action>
+  <action title="Delete" action_id="sl-delete" category="sl-actions"
+     condition_expr=""
+     url_expr="string:${here/absolute_url}/delete_confirmation" visible="True">
+   <permission value="Modify portal content"/>
+  </action>
+  <action title="Move Up" action_id="sl-moveup" category="sl-actions"
+     condition_expr=""
+     url_expr="string:${here/absolute_url}/block_control?action=moveup"
+     visible="True">
+   <permission value="Modify portal content"/>
+  </action>
+  <action title="Move Down" action_id="sl-movedo" category="sl-actions"
+     condition_expr=""
+     url_expr="string:${here/absolute_url}/block_control?action=movedo"
+     visible="True">
+   <permission value="Modify portal content"/>
   </action>
 </object>
