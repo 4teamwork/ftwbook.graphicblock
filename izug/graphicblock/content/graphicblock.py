@@ -160,6 +160,8 @@ class GraphicBlock(base.ATCTContent):
     portal_type = "GraphicBlock"
     schema = GraphicBlockSchema
 
+    _sl_viewlet = 'izug.graphicblock'
+
     # ATFolder
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')

@@ -15,3 +15,11 @@ class IGraphicBlock(Interface):
 
 class ISimpleViewletGraphicBlockProvider(IViewletManager):
     """ ViewletManager marker interface"""
+
+class IGraphicConverter(Interface):
+    """ Marker interface for graphics converter
+    """
+    def convert(graphic):
+        """ Convert graphic
+        """
+
