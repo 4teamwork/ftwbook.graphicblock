@@ -1,0 +1,59 @@
+Metadata-Version: 1.0
+Name: izug.graphicblock
+Version: 1.0dev
+Summary: UNKNOWN
+Home-page: https://svn.4teamwork.ch/repos/zug/izug/izug.graphicblock/
+Author: 4teamwork GmbH
+Author-email: j.baumann@4teamwork.ch
+License: GPL
+Description: .. contents::
+        
+        .. Note!
+        -----
+        Update the following URLs to point to your:
+        
+        - code repository
+        - bug tracker
+        - questions/comments feedback mail
+        (do not set a real mail, to avoid spams)
+        
+        Or remove it if not used.
+        
+        - Code repository: http://svn.somewhere.com/...
+        - Questions and comments to somemailing_list
+        - Report bugs at http://bug.somewhere.com/..
+        
+        
+        Change history
+        **************
+        
+        Changelog
+        =========
+        
+        1.0 (xxxx-xx-xx)
+        ------------------
+        
+        - Created recipe with ZopeSkel [4teamwork GmbH].
+        
+        Detailed Documentation
+        **********************
+        
+        Introduction
+        ============
+        
+        
+        
+        Contributors
+        ************
+        
+        4teamwork GmbH, Author
+        
+        
+        Download
+        ********
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
