@@ -1,0 +1,61 @@
+# izug.graphicblock
+# Jonas Baumann <j.baumann@4teamwork.ch>, 2009
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2009-03-20 10:00+0000\n"
+"PO-Revision-Date: 2009-03-20 10:00+0100\n"
+"Last-Translator: Jonas Baumann <j.baumann@4teamwork.ch>\n"
+"Language-Team: Jonas Baumann <j.baumann@4teamwork.ch>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: izug.graphicblock\n"
+
+#. Default "GraphicBlock"
+#: izug/graphicblock/profiles/default/types/graphicblock.xml
+msgid "GraphicBlock"
+msgstr "Grafik Block"
+
+#. Default "Graphic Block for embedding PDF files into Books"
+#: izug/graphicblock/profiles/default/types/graphicblock.xml
+msgid "GraphicBlock_description"
+msgstr "PDF-Grafiken in Bücher einbinden"
+
+#. Default: "Graphic (PDF)"
+#: izug.graphicblock/izug/graphicblock/content/graphicblock.py
+msgid "izug_label_graphic"
+msgstr "Grafik (PDF)"
+
+#. Default: "Graphic Preview"
+#: izug.graphicblock/izug/graphicblock/content/graphicblock.py
+msgid "izug_label_graphic_preview"
+msgstr "Grafik Vorschau"
+
+#. Default: "Graphic Width"
+#: izug.graphicblock/izug/graphicblock/content/graphicblock.py
+msgid "izug_label_graphic_width"
+msgstr "Breite der Grafik (in Prozent)"
+
+#. Default: "Trim top (mm)"
+#: izug.graphicblock/izug/graphicblock/content/graphicblock.py
+msgid "izug_label_trim_top"
+msgstr "Grafik oben abschneiden (mm)"
+
+#. Default: "Trim right (mm)"
+#: izug.graphicblock/izug/graphicblock/content/graphicblock.py
+msgid "izug_label_trim_right"
+msgstr "Grafik rechts abschneiden (mm)"
+
+#. Default: "Trim bottom (mm)"
+#: izug.graphicblock/izug/graphicblock/content/graphicblock.py
+msgid "izug_label_trim_bottom"
+msgstr "Grafik unten abschneiden (mm)"
+
+#. Default: "Trim left (mm)"
+#: izug.graphicblock/izug/graphicblock/content/graphicblock.py
+msgid "izug_label_trim_left"
+msgstr "Grafik links abschneiden (mm)"
+

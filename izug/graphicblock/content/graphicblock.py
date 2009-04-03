@@ -35,7 +35,7 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label_msgid = 'izug_label_graphic',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug',
+            i18n_domain = 'izug.graphicblock',
             visible = {
                     'edit' : 'visible',
                     'view' : 'invisible',
@@ -51,7 +51,7 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label_msgid = 'izug_label_graphic_preview',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug',
+            i18n_domain = 'izug.graphicblock',
             visible = {
                     'edit' : 'invisible',
                     'view' : 'visible',
@@ -70,7 +70,7 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label_msgid = 'izug_label_graphic_width',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug',
+            i18n_domain = 'izug.graphicblock',
         ),
     ),
 
@@ -85,7 +85,7 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label_msgid = 'izug_label_trim_top',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug',
+            i18n_domain = 'izug.graphicblock',
         ),
     ),
 
@@ -100,7 +100,7 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label_msgid = 'izug_label_trim_right',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug',
+            i18n_domain = 'izug.graphicblock',
         ),
     ),
 
@@ -115,7 +115,7 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label_msgid = 'izug_label_trim_bottom',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug',
+            i18n_domain = 'izug.graphicblock',
         ),
     ),
 
@@ -130,7 +130,7 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             label_msgid = 'izug_label_trim_left',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug',
+            i18n_domain = 'izug.graphicblock',
         ),
     ),
 
