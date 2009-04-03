@@ -6,5 +6,18 @@
     <!-- configure your content components here -->
 
     <!-- -*- extra stuff goes here -*- -->
+    <class class=".graphicblock.GraphicBlock">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IGraphicBlock"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IGraphicBlock"
+            />
+
+    </class>
 
 </configure>
