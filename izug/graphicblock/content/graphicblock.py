@@ -10,8 +10,11 @@ from Products.ATContentTypes.content import schemata
 from izug.graphicblock import graphicblockMessageFactory as _
 from izug.graphicblock.interfaces import IGraphicBlock
 from izug.graphicblock.config import PROJECTNAME
+from izug.bibliothek.content import latexmixin
 
-GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
+GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
+        latexmixin.LatexMixinSchema + \
+        atapi.Schema((
 
     atapi.BooleanField(
         name='showTitle',
@@ -153,7 +156,7 @@ GraphicBlockSchema['excludeFromNav'].default = True
 
 schemata.finalizeATCTSchema(GraphicBlockSchema, moveDiscussion=False)
 
-class GraphicBlock(base.ATCTContent):
+class GraphicBlock(base.ATCTContent, latexmixin.LatexMixin):
     """Graphic Block for embedding PDF files into Books"""
     implements(IGraphicBlock)
 

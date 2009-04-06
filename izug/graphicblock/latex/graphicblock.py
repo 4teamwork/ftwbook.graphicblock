@@ -1,12 +1,14 @@
 
-from izug.bibliothek.latex.ctconverter import ZugCTConverter
+from izug.bibliothek.latex.ctconverter import ZugCTConverter, LatexMixinConverter
 
-class GraphicBlockLatexConverter(ZugCTConverter):
+class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
     
     def __call__(self, context, view):
         super(GraphicBlockLatexConverter, self).__call__(context, view)
         latex = []
         write = lambda *a:[latex.append(x) for x in a]
+        # latex mixin
+        write(self.renderPreLatex(context, view))
         graphic = context.getGraphic()
         # parse arguments
         if self.context.width==100:
@@ -49,6 +51,8 @@ class GraphicBlockLatexConverter(ZugCTConverter):
         write(r'\includegraphics[%s]{%s}' % (','.join(include_options), uid))
         write(r'\end{center}')
         write(r'\end{%s}' % command)
+        # latex mixin
+        write(self.renderPostLatex(context, view))
         # register additional packages
         view.conditionalRegisterPackage('graphicx')
         view.conditionalRegisterPackage('wrapfig')
