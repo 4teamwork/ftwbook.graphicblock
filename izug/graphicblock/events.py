@@ -28,7 +28,7 @@ def convertFileUpponImageCreation(obj, event):
                                 name = normalizeString(image.content_type, context=obj))
         except ComponentLookupError:
             try:
-                converter = getUtility(ISkriptoriumImageConverter, 'base-converter')
+                converter = getUtility(IGraphicConverter, 'base-converter')
             except ComponentLookupError, e:
                 image = createErrorImage(e)
 
