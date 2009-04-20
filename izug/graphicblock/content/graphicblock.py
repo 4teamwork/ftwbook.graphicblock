@@ -170,6 +170,7 @@ class GraphicBlock(base.ATCTContent, latexmixin.LatexMixin):
     description = atapi.ATFieldProperty('description')
 
     # GraphicBlock
+    showTitle = atapi.ATFieldProperty('showTitle')
     graphic = atapi.ATFieldProperty('graphic')
     graphic_preview = atapi.ATFieldProperty('graphic_preview')
     width = atapi.ATFieldProperty('width')

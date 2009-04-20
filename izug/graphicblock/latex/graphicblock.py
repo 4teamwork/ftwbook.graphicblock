@@ -48,6 +48,8 @@ class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
         elif command=='wrapfigure':
             write(r'\begin{wrapfigure}{hl}{%s}' % width)
         write(r'\begin{center}')
+        if context.showTitle:
+            write(r'\caption{%s}' % context.Title())
         write(r'\includegraphics[%s]{%s}' % (','.join(include_options), uid))
         write(r'\end{center}')
         write(r'\end{%s}' % command)
