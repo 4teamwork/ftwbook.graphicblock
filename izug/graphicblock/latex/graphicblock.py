@@ -12,10 +12,8 @@ class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
         graphic = context.getGraphic()
         # parse arguments
         if self.context.width==100:
-            command = 'figure'
             width = r'\columnwidth'
         else:
-            command = 'wrapfigure'
             width = r'%f\columnwidth' % (self.context.width / float(100))
         # includegraphics options
         include_options = [
@@ -43,16 +41,11 @@ class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
         uid = '%s_image' % context.UID()
         view.addImage(uid=uid, image=graphic)
         # generate latex
-        if command=='figure':
-            write(r'\begin{figure}[htbp]')
-        elif command=='wrapfigure':
-            write(r'\begin{wrapfigure}{hl}{%s}' % width)
         write(r'\begin{center}')
         if context.showTitle:
             write(r'\caption{%s}' % context.Title())
         write(r'\includegraphics[%s]{%s}' % (','.join(include_options), uid))
         write(r'\end{center}')
-        write(r'\end{%s}' % command)
         # latex mixin
         write(self.renderPostLatex(context, view))
         # register additional packages
