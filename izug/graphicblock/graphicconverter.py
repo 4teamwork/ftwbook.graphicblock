@@ -1,4 +1,5 @@
 
+from PIL import Image
 import time
 import os
 from subprocess import Popen, PIPE, call
@@ -10,6 +11,7 @@ import logging
 
 from interfaces import IGraphicConverter
 from events import createErrorImage
+from izug.graphicblock import config
 
 logger = logging.getLogger('izug.graphicblock')
 
@@ -58,15 +60,27 @@ class PDFConverter(BaseGraphicConverter):
                 converted = cfile.read()
                 cfile.close()
                 os.remove(cpath)
-                return StringIO(converted)
+                width = int(float(image.width) / 100 * config.PREVIEW_MAX_WIDTH)
+                return self.rescale_image(StringIO(converted), width)
             else:
                 raise IOError, 'Program terminated with error code %s' % (retcode)
-
-            
         except Exception, e:
             return createErrorImage(e)
-        return StringIO(data)
-    
+
+    def rescale_image(self, stream, width):
+        """
+        stream: image stream (e.g. open('pic.jpg'))
+        width: width
+        return: resized stream
+        """
+        original = Image.open(stream)
+        width = int(width)
+        height = int(width * float(original.size[1]) / original.size[0])
+        resized = original.resize((width, height))
+        iostring = StringIO()
+        resized.save(iostring, 'jpeg')
+        return iostring
+
     def getTempfiles(self):
         name = time.strftime("%Y%m%d%H%M%S_image")
         

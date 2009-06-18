@@ -14,9 +14,6 @@ def convertFileUpponImageCreation(obj, event):
         # delete preview, if graphic file was delete
         obj.getField('graphic_preview').set(obj, "DELETE_IMAGE")
         return
-    if IObjectModifiedEvent.providedBy(event) and not obj.REQUEST.get('graphic_file'):
-        # do nothing, if no new graphic was uploaded
-        return
 
     file = obj.getGraphic()
 
