@@ -1,9 +1,9 @@
-Changelog for izug.graphicblock
-===============================
+Changelog
+=========
 
 
-izug.graphicblock - v0.1
-------------------------
+0.1
+---
 
     [06.04.2009] Issue #311 Schema Mixin für Latex Steuerung [jba]
         - added Latex Schema Mixin support for Graphicblock
