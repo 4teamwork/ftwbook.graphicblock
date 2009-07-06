@@ -4,10 +4,9 @@ Changelog
 
 0.1
 ---
-
     [18.06.2009] Issue #364 GraphicBlock: Skalierte Vorschau für Internet Explorer [jba]
     [06.04.2009] Issue #311 Schema Mixin für Latex Steuerung [jba]
-        - added Latex Schema Mixin support for Graphicblock
+    added Latex Schema Mixin support for Graphicblock
     [03.04.2009] Issue #313 Inhaltstyp Grafikblock für Einbinden von Grafiken in PDF [jba]
-        - created izug.graphicblock with content type Graphicblock
+    created izug.graphicblock with content type Graphicblock
 
