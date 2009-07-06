@@ -8,7 +8,8 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.1'
+version = '0.2-dev'
+maintainer = 'Jonas Baumann'
 
 long_description = (
     read('README.txt')
@@ -16,7 +17,7 @@ long_description = (
     'Change history\n'
     '**************\n'
     + '\n' +
-    read('CHANGES.txt')
+    read('docs', 'HISTORY.txt')
     + '\n' +
     'Detailed Documentation\n'
     '**********************\n'
@@ -36,7 +37,7 @@ tests_require=['zope.testing']
 
 setup(name='izug.graphicblock',
       version=version,
-      description="",
+      description="iZug News (Maintainer: %s)" % maintainer,
       long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -46,10 +47,10 @@ setup(name='izug.graphicblock',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         ],
       keywords='',
-      author='4teamwork GmbH',
-      author_email='j.baumann@4teamwork.ch',
-      url='https://svn.4teamwork.ch/repos/zug/izug/izug.graphicblock/',
-      license='GPL',
+      author='%s, 4teamwork GmbH' % maintainer,
+      author_email='mailto:info@4teamwork.ch',
+      url='http://psc.4teamwork.ch/4teamwork/kunden/izug/izug.graphicblock/',
+      license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['izug', ],
       include_package_data=True,
