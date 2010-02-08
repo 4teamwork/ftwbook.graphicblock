@@ -7,6 +7,7 @@ from StringIO import StringIO
 import traceback
 from PIL import Image, ImageDraw, ImageFont
 
+from izug.graphicblock import config
 from interfaces import IGraphicConverter
 
 def convertFileUpponImageCreation(obj, event):
@@ -15,10 +16,10 @@ def convertFileUpponImageCreation(obj, event):
         obj.getField('graphic_preview').set(obj, "DELETE_IMAGE")
         return
 
-    file = obj.getGraphic()
+    file_ = obj.getGraphic()
 
-    if file:
-        image = file
+    if file_:
+        image = file_
         converter = None
         try:
             converter = getUtility(IGraphicConverter,
@@ -33,10 +34,25 @@ def convertFileUpponImageCreation(obj, event):
             image = converter.convert(image)
 
         if not obj.Title():
-            obj.setTitle(file.filename)
+            obj.setTitle(file_.filename)
 
-        obj.schema['graphic_preview'].set(obj, image)
-        image.close()
+        # resize
+        try:
+            ori_im = Image.open(image)
+        except IOError:
+            pass
+        else:
+            ori_im = ori_im.convert('RGB')
+            if ori_im.size[0]>config.PREVIEW_MAX_WIDTH:
+                pv_size = (config.PREVIEW_MAX_WIDTH,
+                           ori_im.size[1] * config.PREVIEW_MAX_WIDTH / ori_im.size[0])
+                pv_im = ori_im.resize(pv_size, Image.ANTIALIAS)
+                pv_file = StringIO()
+                pv_im.save(pv_file, 'PNG')
+                image = pv_file
+
+            obj.schema['graphic_preview'].set(obj, image)
+            image.close()
 
 def createErrorImage(e=None, msg=''):    
     if e is not None:

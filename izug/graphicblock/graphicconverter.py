@@ -57,6 +57,8 @@ class PDFConverter(BaseGraphicConverter):
                             
             if retcode == 0:
                 cfile = open(cpath, 'rb')
+                if 1:
+                    return cfile
                 converted = cfile.read()
                 cfile.close()
                 os.remove(cpath)

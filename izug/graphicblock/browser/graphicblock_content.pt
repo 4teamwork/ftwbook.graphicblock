@@ -2,9 +2,13 @@
      tal:attributes="id here/id">
   <a tal:attributes="name here/id"></a>
   <div class="graphicblock-image" align="center">
+    <a target="_blank"
+       tal:attributes="href string:${here/absolute_url}/graphic">
     <img src="" width=""
          tal:attributes="src string:${here/absolute_url}/graphic_preview;
-                         width string:${here/width}%" />
-    <b tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
+                         width python:here.width<100 and '%i%%' % here.width or '';"
+         />
+      <b tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
+    </a>
   </div>
 </div>
