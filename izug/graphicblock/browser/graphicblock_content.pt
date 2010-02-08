@@ -1,10 +1,10 @@
 <div class="graphicblock" id="#"
-        tal:attributes="id here/id">
-    <a tal:attributes="name here/id"></a>
-    <div class="graphicblock-image" align="center">
-        <img src="" width=""
-                tal:attributes="src string:${here/absolute_url}/graphic_preview;
-                                width string:${here/width}%" />
-        <b tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
-    </div>
+     tal:attributes="id here/id">
+  <a tal:attributes="name here/id"></a>
+  <div class="graphicblock-image" align="center">
+    <img src="" width=""
+         tal:attributes="src string:${here/absolute_url}/graphic_preview;
+                         width string:${here/width}%" />
+    <b tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
+  </div>
 </div>
