@@ -4,9 +4,8 @@
   <div class="graphicblock-image" align="center">
     <a target="_blank"
        tal:attributes="href string:${here/absolute_url}/graphic">
-    <img src="" width=""
-         tal:attributes="src string:${here/absolute_url}/graphic_preview;
-                         width python:here.width<100 and '%i%%' % here.width or '';"
+    <img src=""
+         tal:attributes="src string:${here/absolute_url}/graphic_preview;"
          />
       <b tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
     </a>

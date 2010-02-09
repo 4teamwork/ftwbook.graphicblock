@@ -36,9 +36,9 @@ class BaseGraphicConverter(object):
 
 class PDFConverter(BaseGraphicConverter):
 
-    GS_CMD = 'gs -q -dSAFER -dBATCH -dNOPAUSE -sDEVICE=jpeg -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -r105'
+    GS_CMD = 'gs -q -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -r105'
     def convert(self, image):
-        """convert pdf files to jpeg"""
+        """convert pdf files to png"""
         data  = self.getImageAsFile(image)
         try:
             opath, cpath = self.getTempfiles()

@@ -43,16 +43,16 @@ def convertFileUpponImageCreation(obj, event):
             pass
         else:
             ori_im = ori_im.convert('RGB')
-            if ori_im.size[0]>config.PREVIEW_MAX_WIDTH:
-                pv_size = (config.PREVIEW_MAX_WIDTH,
-                           ori_im.size[1] * config.PREVIEW_MAX_WIDTH / ori_im.size[0])
-                pv_im = ori_im.resize(pv_size, Image.ANTIALIAS)
-                pv_file = StringIO()
-                pv_im.save(pv_file, 'PNG')
-                image = pv_file
+            proportion = float(obj.width) / float(100)
+            new_width = int(float(config.PREVIEW_MAX_WIDTH) * float(proportion))
+            pv_size = (new_width,
+                       ori_im.size[1] * new_width / ori_im.size[0])
+            pv_im = ori_im.resize(pv_size, Image.ANTIALIAS)
+            pv_file = StringIO()
+            pv_im.save(pv_file, 'PNG')
 
-            obj.schema['graphic_preview'].set(obj, image)
-            image.close()
+            obj.schema['graphic_preview'].set(obj, pv_file)
+            pv_file.close()
 
 def createErrorImage(e=None, msg=''):    
     if e is not None:
