@@ -2,12 +2,12 @@
      tal:attributes="id here/id">
   <a tal:attributes="name here/id"></a>
   <div class="graphicblock-image" align="center">
+    <b tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
     <a target="_blank"
        tal:attributes="href string:${here/absolute_url}/graphic">
-    <img src=""
-         tal:attributes="src string:${here/absolute_url}/graphic_preview;"
-         />
-      <b tal:content="here/Title" tal:condition="here/getShowTitle|not:nothing" />
+      <img src=""
+           tal:attributes="src string:${here/absolute_url}/graphic_preview;"
+           />
     </a>
   </div>
 </div>
