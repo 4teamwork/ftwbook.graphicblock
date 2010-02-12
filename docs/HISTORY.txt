@@ -8,10 +8,6 @@ Changelog
 * Issue #665 Bild: Qualität der Vorschau schlecht
   https://extranet.4teamwork.ch/support/zug/maintlog/665/
   [09.02.2010, jbaumann]
-  
-* Issue #665 Bild: Qualität der Vorschau schlecht
-  https://extranet.4teamwork.ch/support/zug/maintlog/665/
-  [08.02.2010, jbaumann]
 
 
 0.1.1
