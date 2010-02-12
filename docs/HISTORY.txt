@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-0.1.2
------
+1.0
+---
 
 * Issue #665 Bild: Qualität der Vorschau schlecht
   https://extranet.4teamwork.ch/support/zug/maintlog/665/
