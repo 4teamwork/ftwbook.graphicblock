@@ -5,6 +5,9 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="izug.graphicblock">
 
+  <!-- dependency includes -->
+  <include package="plone.browserlayer" />
+
   <five:registerPackage package="." initialize=".initialize" />
 
   <i18n:registerTranslations directory="locales" />

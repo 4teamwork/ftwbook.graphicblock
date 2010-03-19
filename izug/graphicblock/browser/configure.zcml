@@ -25,7 +25,7 @@
             manager="..interfaces.ISimpleViewletGraphicBlockProvider"
             class="izug.simplelayout.viewlets.SimpleLayoutControlsViewlet"
             permission="cmf.ModifyPortalContent"
-            layer="izug.theme.browser.interfaces.IThemeSpecific"
+            layer="..interfaces.IGraphicBlockLayer"
             />
  
     <browser:viewlet
@@ -33,7 +33,7 @@
             manager="..interfaces.ISimpleViewletGraphicBlockProvider"
             class=".viewlets.SimpleLayoutGraphicBlockViewlet"
             permission="zope2.View"
-            layer="izug.theme.browser.interfaces.IThemeSpecific"
+            layer="..interfaces.IGraphicBlockLayer"
             />
 
 </configure>

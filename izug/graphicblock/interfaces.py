@@ -10,6 +10,10 @@ from izug.graphicblock import graphicblockMessageFactory as _
 
 # -*- extra stuff goes here -*-
 
+class IGraphicBlockLayer(Interface):
+    """ Graphic block specific request layer interface
+    """
+
 class IGraphicBlock(Interface):
     """Graphic Block for embedding PDF files into Books"""
 

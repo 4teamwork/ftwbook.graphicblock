@@ -5,6 +5,9 @@ Changelog
 1.1
 ---
 
+* Added own request layer interface for eliminating dependency to izug.theme
+  [19.03.2010, jbaumann]
+  
 * Removed setup.cfg (not required anymore)
   [19.03.2010, jbaumann]
   
