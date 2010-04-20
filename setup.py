@@ -62,7 +62,6 @@ setup(name='izug.graphicblock',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       test_suite = 'izug.graphicblock.tests.test_docs.test_suite',
-      entry_points="""
-      # -*- entry_points -*- 
-      """,
+      entry_points=""""""
+
       )
