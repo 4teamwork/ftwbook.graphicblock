@@ -5,6 +5,9 @@ Changelog
 1.3
 ---
 
+* Fixed translation problem (Bad magic number): do not release .mo files
+  [11.08.2010, jbaumann]
+
 * Fixed import error in setup.py
   [22.06.2010, jbaumann]
 
