@@ -3,9 +3,6 @@
       xmlns:five="http://namespaces.zope.org/five"
       i18n_domain="ftwbook.graphicblock">
 
-    <!-- configure your content components here -->
-
-    <!-- -*- extra stuff goes here -*- -->
     <class class=".graphicblock.GraphicBlock">
 
         <require
@@ -19,11 +16,5 @@
               />
 
     </class>
-
-    <!-- let GraphicBlock implement ISimpleLayoutBlock (ftwbook.simplelayout) -->
-    <five:implements
-          class=".graphicblock.GraphicBlock"
-          interface="ftwbook.simplelayout.interfaces.ISimpleLayoutBlock"
-          />
 
 </configure>

@@ -8,6 +8,7 @@ from Products.ATContentTypes.content import schemata
 from ftwbook.graphicblock.interfaces import IGraphicBlock
 from ftwbook.graphicblock.config import PROJECTNAME
 from ftwbook.bibliothek.content import latexmixin
+from simplelayout.base.interfaces import ISimpleLayoutBlock
 
 
 GraphicBlockSchema = (schemata.ATContentTypeSchema.copy() + \
@@ -156,7 +157,7 @@ schemata.finalizeATCTSchema(GraphicBlockSchema, moveDiscussion=False)
 
 class GraphicBlock(base.ATCTContent, latexmixin.LatexMixin):
     """Graphic Block for embedding PDF files into Books"""
-    implements(IGraphicBlock)
+    implements(IGraphicBlock, ISimpleLayoutBlock)
 
     portal_type = "GraphicBlock"
     schema = GraphicBlockSchema
