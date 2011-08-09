@@ -1,181 +1,116 @@
 """Definition of the GraphicBlock content type
 """
 
-from zope.interface import implements
-from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
-from ftwbook.graphicblock.interfaces import IGraphicBlock
-from ftwbook.graphicblock.config import PROJECTNAME
+from Products.Archetypes import atapi
 from ftwbook.bibliothek.content import latexmixin
+from ftwbook.graphicblock import _
+from ftwbook.graphicblock.config import PROJECTNAME
+from ftwbook.graphicblock.interfaces import IGraphicBlock
 from simplelayout.base.interfaces import ISimpleLayoutBlock
+from zope.interface import implements
 
 
-GraphicBlockSchema = (schemata.ATContentTypeSchema.copy() + \
-                          latexmixin.LatexMixinSchema + \
-                          atapi.Schema((
+SCHEMA = atapi.Schema((
 
-            atapi.BooleanField(
-                name='showTitle',
-                storage=atapi.AnnotationStorage(),
-                schemata='default',
-                default=False,
-                widget=atapi.BooleanWidget(
-                    label='Show title',
-                    label_msgid='ftwbook_label_showtitle',
-                    description='',
-                    description_msgid='ftwbook_help_showtitle',
-                    i18n_domain='ftwbook',
-                    ),
-                ),
+        atapi.BooleanField(
+            name='showTitle',
+            default=False,
+            searchable=False,
+            widget=atapi.BooleanWidget(
+                label=_(u'label_showtitle',
+                        default=u'Show title'),
+                description=_(u'help_showtitle', default=u''))),
 
-            atapi.FileField(
-                name = 'graphic',
-                storage = atapi.AnnotationStorage(),
-                widget = atapi.FileWidget(
-                    label = 'Graphic (PDF)',
-                    label_msgid = 'ftwbook_label_graphic',
-                    description = '',
-                    description_msgid = '',
-                    i18n_domain = 'ftwbook.graphicblock',
-                    visible = {
-                        'edit' : 'visible',
-                        'view' : 'invisible',
-                        },
-                    ),
-                ),
+        atapi.FileField(
+            name='file',
+            storage=atapi.AnnotationStorage(),
+            required=True,
+            searchable=True,
+            widget=atapi.FileWidget(
+                label=_(u'label_file',
+                        u'PDF file'),
+                description=_(u'help_file', default=u''),
+                visible=dict(edit='visible', view='invisible'))),
 
-            atapi.ImageField(
-                name = 'graphic_preview',
-                storage = atapi.AnnotationStorage(),
-                widget = atapi.ImageWidget(
-                    label = 'Graphic Preview',
-                    label_msgid = 'ftwbook_label_graphic_preview',
-                    description = '',
-                    description_msgid = '',
-                    i18n_domain = 'ftwbook.graphicblock',
-                    visible = {
-                        'edit' : 'invisible',
-                        'view' : 'visible',
-                        }
-                    ),
-                ),
+        atapi.ImageField(
+            name='preview',
+            storage=atapi.AnnotationStorage(),
+            required=False,
+            searchable=False,
+            widget=atapi.ImageWidget(
+                label=_(u'Preview',
+                        default=u'Preview'),
+                visible=dict(edit='invisible', view='visible'))),
 
-            atapi.IntegerField(
-                name = 'width',
-                storage = atapi.AnnotationStorage(),
-                required = True,
-                searchable = False,
-                default = 100,
-                widget = atapi.IntegerWidget(
-                    label = 'Graphic Width',
-                    label_msgid = 'ftwbook_label_graphic_width',
-                    description = '',
-                    description_msgid = '',
-                    i18n_domain = 'ftwbook.graphicblock',
-                    ),
-                ),
+        atapi.IntegerField(
+            name='width',
+            required=True,
+            default=100,
+            searchable=False,
+            widget=atapi.IntegerWidget(
+                label=_(u'label_width',
+                        default=u'Grapic width (%)'),
+                description=_(u'help_width', default=u''))),
 
-            atapi.IntegerField(
-                name = 'trim_top',
-                storage = atapi.AnnotationStorage(),
-                required = False,
-                searchable = False,
-                default = 0,
-                widget = atapi.IntegerWidget(
-                    label = 'Trim top (mm)',
-                    label_msgid = 'ftwbook_label_trim_top',
-                    description = '',
-                    description_msgid = '',
-                    i18n_domain = 'ftwbook.graphicblock',
-                    ),
-                ),
+        atapi.IntegerField(
+            name='trim_top',
+            required=False,
+            searchable=False,
+            default=0,
+            widget=atapi.IntegerWidget(
+                label=_(u'label_trim_top',
+                        default=u'Trip top (mm)'),
+                help=_(u'help_trim_top', default=u''))),
 
-            atapi.IntegerField(
-                name = 'trim_right',
-                storage = atapi.AnnotationStorage(),
-                required = False,
-                searchable = False,
-                default = 0,
-                widget = atapi.IntegerWidget(
-                    label = 'Trim right (mm)',
-                    label_msgid = 'ftwbook_label_trim_right',
-                    description = '',
-                    description_msgid = '',
-                    i18n_domain = 'ftwbook.graphicblock',
-                    ),
-                ),
+        atapi.IntegerField(
+            name='trim_right',
+            required=False,
+            searchable=False,
+            default=0,
+            widget=atapi.IntegerWidget(
+                label=_(u'label_trim_right',
+                        default=u'Trip right (mm)'),
+                help=_(u'help_trim_right', default=u''))),
 
-            atapi.IntegerField(
-                name = 'trim_bottom',
-                storage = atapi.AnnotationStorage(),
-                required = False,
-                searchable = False,
-                default = 0,
-                widget = atapi.IntegerWidget(
-                    label = 'Trim bottom (mm)',
-                    label_msgid = 'ftwbook_label_trim_bottom',
-                    description = '',
-                    description_msgid = '',
-                    i18n_domain = 'ftwbook.graphicblock',
-                    ),
-                ),
+        atapi.IntegerField(
+            name='trim_bottom',
+            required=False,
+            searchable=False,
+            default=0,
+            widget=atapi.IntegerWidget(
+                label=_(u'label_trim_bottom',
+                        default=u'Trip bottom (mm)'),
+                help=_(u'help_trim_bottom', default=u''))),
 
-            atapi.IntegerField(
-                name = 'trim_left',
-                storage = atapi.AnnotationStorage(),
-                required = False,
-                searchable = False,
-                default = 0,
-                widget = atapi.IntegerWidget(
-                    label = 'Trim left (mm)',
-                    label_msgid = 'ftwbook_label_trim_left',
-                    description = '',
-                    description_msgid = '',
-                    i18n_domain = 'ftwbook.graphicblock',
-                    ),
-                ),
+        atapi.IntegerField(
+            name='trim_left',
+            required=False,
+            searchable=False,
+            default=0,
+            widget=atapi.IntegerWidget(
+                label=_(u'label_trim_left',
+                        default=u'Trip left (mm)'),
+                help=_(u'help_trim_left', default=u''))),
 
 
-            # -*- Your Archetypes field definitions here ... -*-
+        ))
 
-            )))
 
-# Set storage on fields copied from ATContentTypeSchema, making sure
-# they work well with the python bridge properties.
+GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + SCHEMA
 
-GraphicBlockSchema['title'].storage = atapi.AnnotationStorage()
+
 GraphicBlockSchema['title'].required = False
 GraphicBlockSchema['title'].searchable = False
-
-GraphicBlockSchema['description'].storage = atapi.AnnotationStorage()
 GraphicBlockSchema['description'].widget.visible = {'edit': 0, 'view': 0}
-
-GraphicBlockSchema['excludeFromNav'].default = True
-
 schemata.finalizeATCTSchema(GraphicBlockSchema, moveDiscussion=False)
+
 
 class GraphicBlock(base.ATCTContent, latexmixin.LatexMixin):
     """Graphic Block for embedding PDF files into Books"""
+
     implements(IGraphicBlock, ISimpleLayoutBlock)
-
-    portal_type = "GraphicBlock"
     schema = GraphicBlockSchema
-
-    _sl_viewlet = 'ftwbook.graphicblock'
-
-    # ATFolder
-    title = atapi.ATFieldProperty('title')
-    description = atapi.ATFieldProperty('description')
-
-    # GraphicBlock
-    showTitle = atapi.ATFieldProperty('showTitle')
-    graphic = atapi.ATFieldProperty('graphic')
-    graphic_preview = atapi.ATFieldProperty('graphic_preview')
-    width = atapi.ATFieldProperty('width')
-    trim_top = atapi.ATFieldProperty('trim_top')
-    trim_right = atapi.ATFieldProperty('trim_right')
-    trim_bottom = atapi.ATFieldProperty('trim_bottom')
-    trim_left = atapi.ATFieldProperty('trim_left')
 
 atapi.registerType(GraphicBlock, PROJECTNAME)
