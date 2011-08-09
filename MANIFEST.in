@@ -1,5 +1,0 @@
-recursive-include izug *
-recursive-include docs *
-include *.txt
-global-exclude *.pyc
-global-exclude *.mo
