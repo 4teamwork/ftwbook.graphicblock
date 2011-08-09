@@ -4,7 +4,6 @@
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from Products.Archetypes import atapi
-from ftwbook.bibliothek.content import latexmixin
 from ftwbook.graphicblock import _
 from ftwbook.graphicblock.config import PROJECTNAME
 from ftwbook.graphicblock.interfaces import IGraphicBlock
@@ -107,7 +106,7 @@ GraphicBlockSchema['description'].widget.visible = {'edit': 0, 'view': 0}
 schemata.finalizeATCTSchema(GraphicBlockSchema, moveDiscussion=False)
 
 
-class GraphicBlock(base.ATCTContent, latexmixin.LatexMixin):
+class GraphicBlock(base.ATCTContent):
     """Graphic Block for embedding PDF files into Books"""
 
     implements(IGraphicBlock, ISimpleLayoutBlock)
