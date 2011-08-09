@@ -1,7 +1,7 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="ftwbook.graphicblock">
+      xmlns="http://namespaces.zope.org/zope"
+      xmlns:five="http://namespaces.zope.org/five"
+      i18n_domain="ftwbook.graphicblock">
 
     <!-- configure your content components here -->
 
@@ -9,21 +9,21 @@
     <class class=".graphicblock.GraphicBlock">
 
         <require
-            permission="zope2.View"
-            interface="..interfaces.IGraphicBlock"
-            />
+              permission="zope2.View"
+              interface="..interfaces.IGraphicBlock"
+              />
 
         <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IGraphicBlock"
-            />
+              permission="cmf.ModifyPortalContent"
+              set_schema="..interfaces.IGraphicBlock"
+              />
 
     </class>
 
     <!-- let GraphicBlock implement ISimpleLayoutBlock (ftwbook.simplelayout) -->
     <five:implements
-        class=".graphicblock.GraphicBlock"
-        interface="ftwbook.simplelayout.interfaces.ISimpleLayoutBlock"
-        />
+          class=".graphicblock.GraphicBlock"
+          interface="ftwbook.simplelayout.interfaces.ISimpleLayoutBlock"
+          />
 
 </configure>

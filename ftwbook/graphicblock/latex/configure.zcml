@@ -1,14 +1,14 @@
 <configure
-        xmlns="http://namespaces.zope.org/zope"
-        xmlns:browser="http://namespaces.zope.org/browser"
-        i18n_domain="ftwbook.graphicblock">
+      xmlns="http://namespaces.zope.org/zope"
+      xmlns:browser="http://namespaces.zope.org/browser"
+      i18n_domain="ftwbook.graphicblock">
 
 
     <browser:view
-            for="..interfaces.IGraphicBlock"
-            name="pdflatex_convert_object"
-            class=".graphicblock.GraphicBlockLatexConverter"
-            permission="zope.Public"
-            />
+          for="..interfaces.IGraphicBlock"
+          name="pdflatex_convert_object"
+          class=".graphicblock.GraphicBlockLatexConverter"
+          permission="zope.Public"
+          />
 
 </configure>

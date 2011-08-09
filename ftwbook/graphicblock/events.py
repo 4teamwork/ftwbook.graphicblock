@@ -1,14 +1,12 @@
-
-from zope.component import getUtility
-from zope.app.event.interfaces import IObjectModifiedEvent
-from Products.CMFPlone.utils import normalizeString
-from zope.component.exceptions import ComponentLookupError
-from StringIO import StringIO
-import traceback
 from PIL import Image, ImageDraw, ImageFont
-
+from Products.CMFPlone.utils import normalizeString
+from StringIO import StringIO
 from ftwbook.graphicblock import config
 from interfaces import IGraphicConverter
+from zope.component import getUtility
+from zope.component.exceptions import ComponentLookupError
+import traceback
+
 
 def convertFileUpponImageCreation(obj, event):
     if obj.REQUEST.get('graphic_delete')=='delete':
@@ -54,6 +52,7 @@ def convertFileUpponImageCreation(obj, event):
             obj.schema['graphic_preview'].set(obj, pv_file)
             pv_file.close()
 
+
 def createErrorImage(e=None, msg=''):
     if e is not None:
         erms = StringIO()
@@ -72,5 +71,3 @@ def createErrorImage(e=None, msg=''):
     out = StringIO()
     tmpimg.save(out, 'png')
     return out
-
-

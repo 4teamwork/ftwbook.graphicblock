@@ -1,5 +1,5 @@
-
 from ftwbook.bibliothek.latex.ctconverter import ZugCTConverter, LatexMixinConverter
+
 
 class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
 
@@ -52,4 +52,3 @@ class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
         view.conditionalRegisterPackage('graphicx')
         view.conditionalRegisterPackage('wrapfig')
         return '\n'.join(latex)
-

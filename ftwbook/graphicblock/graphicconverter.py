@@ -1,19 +1,18 @@
-
 from PIL import Image
-import time
-import os
-from subprocess import Popen, PIPE, call
-from zope.interface import implements
 from Products.ATContentTypes.lib.imagetransform import ATCTImageTransform
 from StringIO import StringIO
-import logging
-
-
-from interfaces import IGraphicConverter
 from events import createErrorImage
 from ftwbook.graphicblock import config
+from interfaces import IGraphicConverter
+from subprocess import call
+from zope.interface import implements
+import logging
+import os
+import time
+
 
 logger = logging.getLogger('ftwbook.graphicblock')
+
 
 class BaseGraphicConverter(object):
     implements(IGraphicConverter)
