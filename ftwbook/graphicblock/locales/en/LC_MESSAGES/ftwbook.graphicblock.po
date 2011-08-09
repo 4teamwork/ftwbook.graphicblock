@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-08-09 19:37+0000\n"
+"PO-Revision-Date: 2011-08-09 21:38+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./ftwbook/graphicblock/profiles/default/types/GraphicBlock.xml
+msgid "GraphicBlock"
+msgstr "Graphic Block"
+
+#. Default: "Preview"
+#: ./ftwbook/graphicblock/content/graphicblock.py:42
+msgid "Preview"
+msgstr "Preview"
+
+#. Default: "ERROR: Could not generate PDF preview (Ghostscript error code: ${code})"
+#: ./ftwbook/graphicblock/converter.py:136
+msgid "error_ghostscript_pdf_preview"
+msgstr "ERROR: Could not generate PDF preview (Ghostscript error code: ${code})"
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:33
+msgid "help_file"
+msgstr "The file should be uploaded as PDF-document for getting the best quality. Also ensure that custom fonts are embedded in the document."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:23
+msgid "help_showtitle"
+msgstr "Show the title as image caption."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:84
+msgid "help_trim_bottom"
+msgstr "Trim the image at the bottom."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:94
+msgid "help_trim_left"
+msgstr "Trim the image at the Left."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:74
+msgid "help_trim_right"
+msgstr "Trim the image at the Right."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:64
+msgid "help_trim_top"
+msgstr "Trim the image at the Top."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:54
+msgid "help_width"
+msgstr "Scale image to this percentage of the available width (usually the textwidth)."
+
+#. Default: "PDF file"
+#: ./ftwbook/graphicblock/content/graphicblock.py:31
+msgid "label_file"
+msgstr "PDF document"
+
+#. Default: "Show title"
+#: ./ftwbook/graphicblock/content/graphicblock.py:21
+msgid "label_showtitle"
+msgstr "Show title"
+
+#. Default: "Trim bottom (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:82
+msgid "label_trim_bottom"
+msgstr "Trim bottom (mm)"
+
+#. Default: "Trim left (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:92
+msgid "label_trim_left"
+msgstr "Trim left (mm)"
+
+#. Default: "Trim right (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:72
+msgid "label_trim_right"
+msgstr "Trim right (mm)"
+
+#. Default: "Trim top (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:62
+msgid "label_trim_top"
+msgstr "Trim top (mm)"
+
+#. Default: "Grapic width (%)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:52
+msgid "label_width"
+msgstr "Scale graphic to width (%)"
+
+

@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-08-09 19:37+0000\n"
+"PO-Revision-Date: 2011-08-09 21:37+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./ftwbook/graphicblock/profiles/default/types/GraphicBlock.xml
+msgid "GraphicBlock"
+msgstr "Grafik Block"
+
+#. Default: "Preview"
+#: ./ftwbook/graphicblock/content/graphicblock.py:42
+msgid "Preview"
+msgstr "Vorschau"
+
+#. Default: "ERROR: Could not generate PDF preview (Ghostscript error code: ${code})"
+#: ./ftwbook/graphicblock/converter.py:136
+msgid "error_ghostscript_pdf_preview"
+msgstr "FEHLER: Vorschau konnte nicht erstellt werden (Ghostscript Fehler ${code})"
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:33
+msgid "help_file"
+msgstr "Die Datei sollte am besten im PDF-Format vorliegen, um eine optimale Qualität gewährleisten zu könne. Stellen Sie sicher, dass allfällige Schriftarten im PDF eingebettet sind."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:23
+msgid "help_showtitle"
+msgstr "Wenn diese Option angewählt ist erscheint bei dieser Grafik der Titel als Bildunterschrift."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:84
+msgid "help_trim_bottom"
+msgstr "Bild unten abschneiden."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:94
+msgid "help_trim_left"
+msgstr "Bild links abschneiden."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:74
+msgid "help_trim_right"
+msgstr "Bild rechts abschneiden."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:64
+msgid "help_trim_top"
+msgstr "Bild oben abschneiden."
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:54
+msgid "help_width"
+msgstr "Bild skalieren auf % des verfügbaren Platzes (Textbreite auf der Seite)."
+
+#. Default: "PDF file"
+#: ./ftwbook/graphicblock/content/graphicblock.py:31
+msgid "label_file"
+msgstr "PDF-Datei"
+
+#. Default: "Show title"
+#: ./ftwbook/graphicblock/content/graphicblock.py:21
+msgid "label_showtitle"
+msgstr "Titel anzeigen"
+
+#. Default: "Trim bottom (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:82
+msgid "label_trim_bottom"
+msgstr "Unten abschneiden (mm)"
+
+#. Default: "Trim left (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:92
+msgid "label_trim_left"
+msgstr "Links abschneiden (mm)"
+
+#. Default: "Trim right (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:72
+msgid "label_trim_right"
+msgstr "Rechts abschneiden (mm)"
+
+#. Default: "Trim top (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:62
+msgid "label_trim_top"
+msgstr "Oben abschneiden (mm)"
+
+#. Default: "Grapic width (%)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:52
+msgid "label_width"
+msgstr "Grafik skalieren (%)"
+
+

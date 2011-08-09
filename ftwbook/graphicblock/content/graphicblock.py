@@ -60,7 +60,7 @@ SCHEMA = atapi.Schema((
             default=0,
             widget=atapi.IntegerWidget(
                 label=_(u'label_trim_top',
-                        default=u'Trip top (mm)'),
+                        default=u'Trim top (mm)'),
                 help=_(u'help_trim_top', default=u''))),
 
         atapi.IntegerField(
@@ -70,7 +70,7 @@ SCHEMA = atapi.Schema((
             default=0,
             widget=atapi.IntegerWidget(
                 label=_(u'label_trim_right',
-                        default=u'Trip right (mm)'),
+                        default=u'Trim right (mm)'),
                 help=_(u'help_trim_right', default=u''))),
 
         atapi.IntegerField(
@@ -80,7 +80,7 @@ SCHEMA = atapi.Schema((
             default=0,
             widget=atapi.IntegerWidget(
                 label=_(u'label_trim_bottom',
-                        default=u'Trip bottom (mm)'),
+                        default=u'Trim bottom (mm)'),
                 help=_(u'help_trim_bottom', default=u''))),
 
         atapi.IntegerField(
@@ -90,7 +90,7 @@ SCHEMA = atapi.Schema((
             default=0,
             widget=atapi.IntegerWidget(
                 label=_(u'label_trim_left',
-                        default=u'Trip left (mm)'),
+                        default=u'Trim left (mm)'),
                 help=_(u'help_trim_left', default=u''))),
 
 

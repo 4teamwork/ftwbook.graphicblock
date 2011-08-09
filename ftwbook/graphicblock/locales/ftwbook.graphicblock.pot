@@ -1,0 +1,96 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-08-09 19:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: ftwbook.graphicblock\n"
+
+#: ./ftwbook/graphicblock/profiles/default/types/GraphicBlock.xml
+msgid "GraphicBlock"
+msgstr ""
+
+#. Default: "Preview"
+#: ./ftwbook/graphicblock/content/graphicblock.py:42
+msgid "Preview"
+msgstr ""
+
+#. Default: "ERROR: Could not generate PDF preview (Ghostscript error code: ${code})"
+#: ./ftwbook/graphicblock/converter.py:136
+msgid "error_ghostscript_pdf_preview"
+msgstr ""
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:33
+msgid "help_file"
+msgstr ""
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:23
+msgid "help_showtitle"
+msgstr ""
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:84
+msgid "help_trim_bottom"
+msgstr ""
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:94
+msgid "help_trim_left"
+msgstr ""
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:74
+msgid "help_trim_right"
+msgstr ""
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:64
+msgid "help_trim_top"
+msgstr ""
+
+#: ./ftwbook/graphicblock/content/graphicblock.py:54
+msgid "help_width"
+msgstr ""
+
+#. Default: "PDF file"
+#: ./ftwbook/graphicblock/content/graphicblock.py:31
+msgid "label_file"
+msgstr ""
+
+#. Default: "Show title"
+#: ./ftwbook/graphicblock/content/graphicblock.py:21
+msgid "label_showtitle"
+msgstr ""
+
+#. Default: "Trim bottom (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:82
+msgid "label_trim_bottom"
+msgstr ""
+
+#. Default: "Trim left (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:92
+msgid "label_trim_left"
+msgstr ""
+
+#. Default: "Trim right (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:72
+msgid "label_trim_right"
+msgstr ""
+
+#. Default: "Trim top (mm)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:62
+msgid "label_trim_top"
+msgstr ""
+
+#. Default: "Grapic width (%)"
+#: ./ftwbook/graphicblock/content/graphicblock.py:52
+msgid "label_width"
+msgstr ""
+
