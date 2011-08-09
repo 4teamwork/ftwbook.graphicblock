@@ -17,9 +17,9 @@
     <property name="filter_content_types">False</property>
     <property name="allow_discussion">False</property>
 
-    <property name="default_view">graphicblock_view</property>
+    <property name="default_view">paragraph_view</property>
     <property name="view_methods">
-        <element value="graphicblock_view" />
+        <element value="paragraph_view" />
     </property>
 
     <alias from="(Default)" to="(dynamic view)"/>
