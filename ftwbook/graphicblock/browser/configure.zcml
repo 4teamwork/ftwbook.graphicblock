@@ -1,39 +1,16 @@
 <configure
-        xmlns="http://namespaces.zope.org/zope"
-        xmlns:browser="http://namespaces.zope.org/browser"
-        i18n_domain="ftwbook.graphicblock">
+      xmlns="http://namespaces.zope.org/zope"
+      xmlns:browser="http://namespaces.zope.org/browser"
+      i18n_domain="ftwbook.graphicblock">
 
+    <!-- XXX: still needed? -->
     <include package="plone.app.contentmenu" />
 
     <!-- GraphicBlock uses block view -->
     <browser:page
-            for="..interfaces.IGraphicBlock"
-            name="block_view"
-            permission="zope2.View"
-            class="ftwbook.block.browser.views.BlockView" />
-
-    <!-- GraphicBlock: simplelayout -->
-    <browser:viewletManager
-            name="ftwbook.graphicblock"
-            provides="..interfaces.ISimpleViewletGraphicBlockProvider"
-            permission="zope2.View"
-            class="plone.app.viewletmanager.manager.OrderedViewletManager"
-            />
-
-    <browser:viewlet
-            name="ftwbook.graphicblock.controls"
-            manager="..interfaces.ISimpleViewletGraphicBlockProvider"
-            class="ftwbook.simplelayout.viewlets.SimpleLayoutControlsViewlet"
-            permission="cmf.ModifyPortalContent"
-            layer="..interfaces.IGraphicBlockLayer"
-            />
-
-    <browser:viewlet
-            name="ftwbook.graphicblock.content"
-            manager="..interfaces.ISimpleViewletGraphicBlockProvider"
-            class=".viewlets.SimpleLayoutGraphicBlockViewlet"
-            permission="zope2.View"
-            layer="..interfaces.IGraphicBlockLayer"
-            />
+          for="..interfaces.IGraphicBlock"
+          name="block_view"
+          permission="zope2.View"
+          class="ftwbook.block.browser.views.BlockView" />
 
 </configure>
