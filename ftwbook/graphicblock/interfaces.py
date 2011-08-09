@@ -2,10 +2,6 @@ from zope.interface import Interface
 from zope.viewlet.interfaces import IViewletManager
 
 
-class IGraphicBlockLayer(Interface):
-    """ Graphic block specific request layer interface
-    """
-
 class IGraphicBlock(Interface):
     """Graphic Block for embedding PDF files into Books"""
 
