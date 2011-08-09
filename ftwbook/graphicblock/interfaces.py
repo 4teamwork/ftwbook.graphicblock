@@ -6,7 +6,7 @@ from zope.app.container.constraints import containers
 
 from zope.viewlet.interfaces import IViewletManager
 
-from izug.graphicblock import graphicblockMessageFactory as _
+from ftwbook.graphicblock import graphicblockMessageFactory as _
 
 # -*- extra stuff goes here -*-
 

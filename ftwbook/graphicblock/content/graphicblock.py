@@ -7,10 +7,10 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 
-from izug.graphicblock import graphicblockMessageFactory as _
-from izug.graphicblock.interfaces import IGraphicBlock
-from izug.graphicblock.config import PROJECTNAME
-from izug.bibliothek.content import latexmixin
+from ftwbook.graphicblock import graphicblockMessageFactory as _
+from ftwbook.graphicblock.interfaces import IGraphicBlock
+from ftwbook.graphicblock.config import PROJECTNAME
+from ftwbook.bibliothek.content import latexmixin
 
 GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         latexmixin.LatexMixinSchema + \
@@ -23,10 +23,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         default=False,
         widget=atapi.BooleanWidget(
             label='Show title',
-            label_msgid='izug_label_showtitle',
+            label_msgid='ftwbook_label_showtitle',
             description='',
-            description_msgid='izug_help_showtitle',
-            i18n_domain='izug',
+            description_msgid='ftwbook_help_showtitle',
+            i18n_domain='ftwbook',
         ),
     ),
 
@@ -35,10 +35,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         storage = atapi.AnnotationStorage(),
         widget = atapi.FileWidget(
             label = 'Graphic (PDF)',
-            label_msgid = 'izug_label_graphic',
+            label_msgid = 'ftwbook_label_graphic',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug.graphicblock',
+            i18n_domain = 'ftwbook.graphicblock',
             visible = {
                     'edit' : 'visible',
                     'view' : 'invisible',
@@ -51,10 +51,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         storage = atapi.AnnotationStorage(),
         widget = atapi.ImageWidget(
             label = 'Graphic Preview',
-            label_msgid = 'izug_label_graphic_preview',
+            label_msgid = 'ftwbook_label_graphic_preview',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug.graphicblock',
+            i18n_domain = 'ftwbook.graphicblock',
             visible = {
                     'edit' : 'invisible',
                     'view' : 'visible',
@@ -70,10 +70,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         default = 100,
         widget = atapi.IntegerWidget(
             label = 'Graphic Width',
-            label_msgid = 'izug_label_graphic_width',
+            label_msgid = 'ftwbook_label_graphic_width',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug.graphicblock',
+            i18n_domain = 'ftwbook.graphicblock',
         ),
     ),
 
@@ -85,10 +85,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         default = 0,
         widget = atapi.IntegerWidget(
             label = 'Trim top (mm)',
-            label_msgid = 'izug_label_trim_top',
+            label_msgid = 'ftwbook_label_trim_top',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug.graphicblock',
+            i18n_domain = 'ftwbook.graphicblock',
         ),
     ),
 
@@ -100,10 +100,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         default = 0,
         widget = atapi.IntegerWidget(
             label = 'Trim right (mm)',
-            label_msgid = 'izug_label_trim_right',
+            label_msgid = 'ftwbook_label_trim_right',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug.graphicblock',
+            i18n_domain = 'ftwbook.graphicblock',
         ),
     ),
 
@@ -115,10 +115,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         default = 0,
         widget = atapi.IntegerWidget(
             label = 'Trim bottom (mm)',
-            label_msgid = 'izug_label_trim_bottom',
+            label_msgid = 'ftwbook_label_trim_bottom',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug.graphicblock',
+            i18n_domain = 'ftwbook.graphicblock',
         ),
     ),
 
@@ -130,10 +130,10 @@ GraphicBlockSchema = schemata.ATContentTypeSchema.copy() + \
         default = 0,
         widget = atapi.IntegerWidget(
             label = 'Trim left (mm)',
-            label_msgid = 'izug_label_trim_left',
+            label_msgid = 'ftwbook_label_trim_left',
             description = '',
             description_msgid = '',
-            i18n_domain = 'izug.graphicblock',
+            i18n_domain = 'ftwbook.graphicblock',
         ),
     ),
 
@@ -163,7 +163,7 @@ class GraphicBlock(base.ATCTContent, latexmixin.LatexMixin):
     portal_type = "GraphicBlock"
     schema = GraphicBlockSchema
 
-    _sl_viewlet = 'izug.graphicblock'
+    _sl_viewlet = 'ftwbook.graphicblock'
 
     # ATFolder
     title = atapi.ATFieldProperty('title')

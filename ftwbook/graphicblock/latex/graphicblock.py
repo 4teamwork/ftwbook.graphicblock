@@ -1,8 +1,8 @@
 
-from izug.bibliothek.latex.ctconverter import ZugCTConverter, LatexMixinConverter
+from ftwbook.bibliothek.latex.ctconverter import ZugCTConverter, LatexMixinConverter
 
 class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
-    
+
     def __call__(self, context, view):
         super(GraphicBlockLatexConverter, self).__call__(context, view)
         latex = []

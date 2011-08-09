@@ -1,7 +1,7 @@
 <configure
         xmlns="http://namespaces.zope.org/zope"
         xmlns:browser="http://namespaces.zope.org/browser"
-        i18n_domain="izug.graphicblock">
+        i18n_domain="ftwbook.graphicblock">
 
     <include package="plone.app.contentmenu" />
 
@@ -10,26 +10,26 @@
             for="..interfaces.IGraphicBlock"
             name="block_view"
             permission="zope2.View"
-            class="izug.block.browser.views.BlockView" />
+            class="ftwbook.block.browser.views.BlockView" />
 
     <!-- GraphicBlock: simplelayout -->
     <browser:viewletManager
-            name="izug.graphicblock"
+            name="ftwbook.graphicblock"
             provides="..interfaces.ISimpleViewletGraphicBlockProvider"
             permission="zope2.View"
             class="plone.app.viewletmanager.manager.OrderedViewletManager"
             />
 
     <browser:viewlet
-            name="izug.graphicblock.controls"
+            name="ftwbook.graphicblock.controls"
             manager="..interfaces.ISimpleViewletGraphicBlockProvider"
-            class="izug.simplelayout.viewlets.SimpleLayoutControlsViewlet"
+            class="ftwbook.simplelayout.viewlets.SimpleLayoutControlsViewlet"
             permission="cmf.ModifyPortalContent"
             layer="..interfaces.IGraphicBlockLayer"
             />
- 
+
     <browser:viewlet
-            name="izug.graphicblock.content"
+            name="ftwbook.graphicblock.content"
             manager="..interfaces.ISimpleViewletGraphicBlockProvider"
             class=".viewlets.SimpleLayoutGraphicBlockViewlet"
             permission="zope2.View"

@@ -7,7 +7,7 @@ from StringIO import StringIO
 import traceback
 from PIL import Image, ImageDraw, ImageFont
 
-from izug.graphicblock import config
+from ftwbook.graphicblock import config
 from interfaces import IGraphicConverter
 
 def convertFileUpponImageCreation(obj, event):
@@ -54,7 +54,7 @@ def convertFileUpponImageCreation(obj, event):
             obj.schema['graphic_preview'].set(obj, pv_file)
             pv_file.close()
 
-def createErrorImage(e=None, msg=''):    
+def createErrorImage(e=None, msg=''):
     if e is not None:
         erms = StringIO()
         traceback.print_exc(file=erms)
@@ -62,7 +62,7 @@ def createErrorImage(e=None, msg=''):
     msgs = msg.split('\n')
     ml = ''
     for m in msgs:
-        ml = len(m)>len(ml) and m or ml 
+        ml = len(m)>len(ml) and m or ml
     height = (len(msgs)*12)+(2*10)
     width = ImageFont.load_default().getsize(ml)[0]+2*10
     tmpimg = Image.new("RGB", (width,height))

@@ -1,0 +1,4 @@
+<layers>
+    <layer name="ftwbook.graphicblock"
+           interface="ftwbook.graphicblock.interfaces.IGraphicBlockLayer" />
+</layers>

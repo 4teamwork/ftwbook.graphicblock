@@ -1,11 +1,11 @@
 """Common configuration constants
 """
 
-PROJECTNAME = 'izug.graphicblock'
+PROJECTNAME = 'ftwbook.graphicblock'
 
 ADD_PERMISSIONS = {
     # -*- extra stuff goes here -*-
-    'GraphicBlock': 'izug.graphicblock: Add GraphicBlock',
+    'GraphicBlock': 'ftwbook.graphicblock: Add GraphicBlock',
 }
 
 PREVIEW_MAX_WIDTH = 730 # px

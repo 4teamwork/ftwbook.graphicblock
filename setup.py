@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-This module contains the tool of izug.graphicblock
+This module contains the tool of ftwbook.graphicblock
 """
 from setuptools import setup, find_packages
 
 def read(*rnames):
     return open('/'.join(rnames)).read()
 
-version = open('izug/graphicblock/version.txt').read().strip()
+version = open('ftwbook/graphicblock/version.txt').read().strip()
 maintainer = 'Jonas Baumann'
 
 long_description = (
@@ -21,7 +21,7 @@ long_description = (
     'Detailed Documentation\n'
     '**********************\n'
     + '\n' +
-    read('izug', 'graphicblock', 'README.txt')
+    read('ftwbook', 'graphicblock', 'README.txt')
     + '\n' +
     'Contributors\n'
     '************\n'
@@ -34,9 +34,9 @@ long_description = (
 
 tests_require=['zope.testing']
 
-setup(name='izug.graphicblock',
+setup(name='ftwbook.graphicblock',
       version=version,
-      description="iZug News (Maintainer: %s)" % maintainer,
+      description="ftwbook News (Maintainer: %s)" % maintainer,
       long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -48,10 +48,10 @@ setup(name='izug.graphicblock',
       keywords='',
       author='%s, 4teamwork GmbH' % maintainer,
       author_email='mailto:info@4teamwork.ch',
-      url='http://psc.4teamwork.ch/4teamwork/kunden/izug/izug.graphicblock/',
+      url='http://psc.4teamwork.ch/4teamwork/kunden/ftwbook/ftwbook.graphicblock/',
       license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['izug', ],
+      namespace_packages=['ftwbook', ],
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
@@ -60,7 +60,7 @@ setup(name='izug.graphicblock',
                         ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
-      test_suite = 'izug.graphicblock.tests.test_docs.test_suite',
+      test_suite = 'ftwbook.graphicblock.tests.test_docs.test_suite',
       entry_points=""""""
 
       )

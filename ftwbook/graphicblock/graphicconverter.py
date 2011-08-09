@@ -11,13 +11,13 @@ import logging
 
 from interfaces import IGraphicConverter
 from events import createErrorImage
-from izug.graphicblock import config
+from ftwbook.graphicblock import config
 
-logger = logging.getLogger('izug.graphicblock')
+logger = logging.getLogger('ftwbook.graphicblock')
 
 class BaseGraphicConverter(object):
     implements(IGraphicConverter)
-    
+
     def getImageAsFile(self, image):
         tmp = ''
         transformer = ATCTImageTransform()
@@ -29,10 +29,10 @@ class BaseGraphicConverter(object):
         elif hasattr(image, '_data'):
              tmp = image._data
         return StringIO(tmp)
-    
+
     def convert(self, image):
         return self.getImageAsFile(image)
-    
+
 
 class PDFConverter(BaseGraphicConverter):
 
@@ -42,19 +42,19 @@ class PDFConverter(BaseGraphicConverter):
         data  = self.getImageAsFile(image)
         try:
             opath, cpath = self.getTempfiles()
-        
+
             logger.info('original file: %s' % opath)
             logger.info('converted file: %s' % cpath)
 
             ofile = open(opath, 'wb')
             ofile.write(data.read())
             ofile.close()
-            
+
             cmd = "%s -sOutputFile=%s %s" % (PDFConverter.GS_CMD, cpath, opath)
             logger.info('calling: %s' % cmd)
             retcode = call(cmd.split(' '))
             os.remove(opath)
-                            
+
             if retcode == 0:
                 cfile = open(cpath, 'rb')
                 if 1:
@@ -85,7 +85,7 @@ class PDFConverter(BaseGraphicConverter):
 
     def getTempfiles(self):
         name = time.strftime("%Y%m%d%H%M%S_image")
-        
+
         filebase = name
         i = 0
         while os.path.exists(filebase + '.pdf'):

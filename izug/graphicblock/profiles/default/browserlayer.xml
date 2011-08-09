@@ -1,4 +1,0 @@
-<layers>
-    <layer name="izug.graphicblock"
-           interface="izug.graphicblock.interfaces.IGraphicBlockLayer" />
-</layers>

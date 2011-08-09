@@ -1,5 +1,5 @@
 # created by: svn propset svn:ignore -F ./IGNORE.TXT .
 
-izug.graphicblock.egg-info
+ftwbook.graphicblock.egg-info
 build
 dist
