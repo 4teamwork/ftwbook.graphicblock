@@ -31,23 +31,16 @@
 
     <!-- Graphic converter (for web preview) -->
     <adapter
-          name=""
-          provides="ftwbook.graphicblock.interfaces.IGraphicConverter"
-          for="* *"
           factory="ftwbook.graphicblock.converter.GraphicConverter"
           />
 
     <adapter
           name="fallback-converter"
-          provides="ftwbook.graphicblock.interfaces.IGraphicConverter"
-          for="* *"
           factory="ftwbook.graphicblock.converter.FallbackGraphicConverter"
           />
 
     <adapter
           name="application-pdf"
-          provides="ftwbook.graphicblock.interfaces.IGraphicConverter"
-          for="* *"
           factory="ftwbook.graphicblock.converter.PDFConverter"
           />
 

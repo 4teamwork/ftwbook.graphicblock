@@ -3,10 +3,13 @@ from Products.ATContentTypes.lib.imagetransform import ATCTImageTransform
 from Products.CMFPlone.utils import normalizeString
 from StringIO import StringIO
 from ftwbook.graphicblock import _
-from interfaces import IGraphicConverter
+from ftwbook.graphicblock.interfaces import IGraphicConverter
+from ftwbook.graphicblock.interfaces import ITypeSpecificConverter
 from shutil import rmtree
 from subprocess import call
+from zope.component import adapts
 from zope.component import queryMultiAdapter, getMultiAdapter
+from zope.interface import implements, Interface
 import logging
 import os
 import tempfile
@@ -17,6 +20,9 @@ class GraphicConverter(object):
     Searches for more specific IGraphicConverter adapters, depending on the
     content-type of the file or falls back to the FallbackGraphicConverter.
     """
+
+    implements(IGraphicConverter)
+    adapts(Interface, Interface)
 
     def __init__(self, context, graphic):
         self.context = context
@@ -43,6 +49,9 @@ class BaseGraphicConverter(object):
     Provides a method get_data returning the file data and a
     method generate_error_image(message).
     """
+
+    implements(ITypeSpecificConverter)
+    adapts(Interface, Interface)
 
     def get_data(self):
         transformer = ATCTImageTransform()

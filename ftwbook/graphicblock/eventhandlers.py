@@ -1,4 +1,4 @@
-from interfaces import IGraphicConverter
+from ftwbook.graphicblock.interfaces import IGraphicConverter
 from zope.component import getMultiAdapter
 
 
