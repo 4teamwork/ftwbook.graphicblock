@@ -1,7 +1,7 @@
-from ftwbook.bibliothek.latex.ctconverter import ZugCTConverter, LatexMixinConverter
+from plonegov.pdflatex.browser.converter import LatexCTConverter
 
 
-class GraphicBlockLatexConverter(ZugCTConverter, LatexMixinConverter):
+class GraphicBlockLatexConverter(LatexCTConverter):
 
     def __call__(self, context, view):
         super(GraphicBlockLatexConverter, self).__call__(context, view)
