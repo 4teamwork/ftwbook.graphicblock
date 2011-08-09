@@ -25,8 +25,8 @@
     <!-- Event Subscribers -->
     <subscriber
           for=".interfaces.IGraphicBlock
-               zope.app.event.interfaces.IObjectModifiedEvent"
-          handler=".events.convertFileUpponImageCreation"
+               zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+          handler=".eventhandlers.create_preview"
           />
 
     <!-- Graphic converter (for web preview) -->
