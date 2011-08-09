@@ -135,7 +135,8 @@ class PDFConverter(BaseGraphicConverter):
                 return self.generate_error_image(
                     _(u'error_ghostscript_pdf_preview',
                       default=u'ERROR: Could not generate PDF preview ' + \
-                          '(Ghostscript error code: %s)' % str(retcode)))
+                          '(Ghostscript error code: ${code})',
+                      mapping=dict(code=retcode)))
 
             return open(jpg_path, 'rb')
 
