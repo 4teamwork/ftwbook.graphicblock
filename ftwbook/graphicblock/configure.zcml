@@ -30,19 +30,25 @@
           />
 
     <!-- Graphic converter (for web preview) -->
-    <utility
-          factory=".graphicconverter.BaseGraphicConverter"
-          provides=".interfaces.IGraphicConverter"
-          name="base-converter"
+    <adapter
+          name=""
+          provides="ftwbook.graphicblock.interfaces.IGraphicConverter"
+          for="* *"
+          factory="ftwbook.graphicblock.converter.GraphicConverter"
           />
 
-    <utility
-          factory=".graphicconverter.PDFConverter"
-          provides=".interfaces.IGraphicConverter"
+    <adapter
+          name="fallback-converter"
+          provides="ftwbook.graphicblock.interfaces.IGraphicConverter"
+          for="* *"
+          factory="ftwbook.graphicblock.converter.FallbackGraphicConverter"
+          />
+
+    <adapter
           name="application-pdf"
+          provides="ftwbook.graphicblock.interfaces.IGraphicConverter"
+          for="* *"
+          factory="ftwbook.graphicblock.converter.PDFConverter"
           />
-
-
-    <!-- -*- extra stuff goes here -*- -->
 
 </configure>

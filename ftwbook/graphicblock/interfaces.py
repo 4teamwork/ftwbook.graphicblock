@@ -8,6 +8,7 @@ class IGraphicBlock(Interface):
 class IGraphicConverter(Interface):
     """ Marker interface for graphics converter
     """
-    def convert(graphic):
+
+    def __call__(context, graphic):
         """ Convert graphic
         """
