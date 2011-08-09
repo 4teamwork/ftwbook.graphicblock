@@ -32,13 +32,13 @@ class GraphicConverter(object):
         contenttype = normalizeString(self.graphic.content_type,
                                       context=self.context)
 
-        converter = queryMultiAdapter(IGraphicConverter,
-                                      (self.context, self.graphic),
+        converter = queryMultiAdapter((self.context, self.graphic),
+                                      ITypeSpecificConverter,
                                       name=contenttype)
 
         if not converter:
-            converter = getMultiAdapter(IGraphicConverter,
-                                        (self.context.self.graphic),
+            converter = getMultiAdapter((self.context, self.graphic),
+                                        ITypeSpecificConverter,
                                         name='fallback-converter')
 
         return converter()
@@ -52,6 +52,10 @@ class BaseGraphicConverter(object):
 
     implements(ITypeSpecificConverter)
     adapts(Interface, Interface)
+
+    def __init__(self, context, graphic):
+        self.context = context
+        self.graphic = graphic
 
     def get_data(self):
         transformer = ATCTImageTransform()
@@ -127,7 +131,7 @@ class PDFConverter(BaseGraphicConverter):
         try:
             # write data to pdf temp file
             pdf_file = open(pdf_path, 'wb')
-            pdf_file.write(self.get_data())
+            pdf_file.write(self.get_data().read())
             pdf_file.close()
 
             cmd_args = [self.__class__.GS_CMD]

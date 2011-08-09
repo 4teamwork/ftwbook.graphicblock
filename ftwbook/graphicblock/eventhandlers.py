@@ -16,8 +16,8 @@ def create_preview(obj, event):
     if not graphic:
         return
 
-    converter = getMultiAdapter(IGraphicConverter,
-                                (obj, graphic))
+    converter = getMultiAdapter((obj, graphic),
+                                IGraphicConverter)
 
     preview_image = converter()
     # XXX scaling needed (obj.width %)?
