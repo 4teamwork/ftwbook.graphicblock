@@ -4,51 +4,81 @@ from plonegov.pdflatex.browser.converter import LatexCTConverter
 class GraphicBlockLatexConverter(LatexCTConverter):
 
     def __call__(self, context, view):
-        super(GraphicBlockLatexConverter, self).__call__(context, view)
-        latex = []
-        write = lambda *a:[latex.append(x) for x in a]
-        # latex mixin
-        write(self.renderPreLatex(context, view))
-        graphic = context.getGraphic()
-        # parse arguments
-        if self.context.width==100:
-            width = r'\columnwidth'
+        self.context = context
+        self.view = view
+
+        return '\n'.join(self.get_latex())
+
+    def get_latex(self):
+        self.view.conditionalRegisterPackage('graphicx')
+        self.view.conditionalRegisterPackage('wrapfig')
+
+        graphicname = self.register_image()
+
+        yield r'\begin{center}'
+        yield self.get_includegraphics_cmd(graphicname)
+
+        if self.context.getShowTitle():
+            yield r'\caption{%s}' % self.context.Title()
+
+        yield r'\end{center}'
+
+    def register_image(self):
+        """register the graphic file. returns the graphic name
+        """
+
+        graphicname = '%s_graphic' % self.context.UID()
+        self.view.addImage(uid=graphicname,
+                           image=self.context.getFile())
+        return graphicname
+
+    def get_includegraphics_cmd(self, graphicname):
+        """return the \includegraphics command with arguments
+        """
+
+        options = []
+
+        options.extend(self.get_width_option())
+        options.extend(self.get_trim_options())
+
+        return r'\includegraphics[%s]{%s}' % (
+            ','.join(options),
+            graphicname)
+
+    def get_trim_options(self):
+        """returns a list containing clip / trim options for the
+        \includegraphics command, if there is trimming configured.
+        otherwise returns an empty list
+        """
+
+        # trim must be in order left, bottom, right, top
+        trim_config = (self.context.getTrim_left(),
+                       self.context.getTrim_bottom(),
+                       self.context.getTrim_right(),
+                       self.context.getTrim_top())
+
+        # trim / clip only if at least one side should be trimmed
+        if sum(trim_config) > 0:
+
+            trimopt = ' '.join(['%smm' % trim
+                                for trim in trim_config])
+
+            return ['clip',
+                    'trim=%s' % trimopt,
+                    ]
+
         else:
-            width = r'%f\columnwidth' % (self.context.width / float(100))
-        # includegraphics options
-        include_options = [
-                r'width=%s' % width,
-        ]
-        trim = {
-            'left' : self.context.trim_left,
-            'right' : self.context.trim_right,
-            'top' : self.context.trim_top,
-            'bottom' : self.context.trim_bottom,
-        }
-        if len(filter(lambda x:x>0, trim.values()))>0:
-            # at least one side must be trimmed, we have to specify
-            # each side and add "clip" option
-            include_options.append('clip')
-            include_options.append('trim=%s' %
-                    ' '.join(['%smm' % str(trim[k]) for k in [
-                            'left',
-                            'bottom',
-                            'right',
-                            'top',
-                    ]])
-            )
-        # register image
-        uid = '%s_image' % context.UID()
-        view.addImage(uid=uid, image=graphic)
-        # generate latex
-        write(r'\begin{center}')
-        if context.showTitle:
-            write(r'\caption{%s}' % context.Title())
-        write(r'\includegraphics[%s]{%s}' % (','.join(include_options), uid))
-        write(r'\end{center}')
-        # latex mixin
-        write(self.renderPostLatex(context, view))
-        # register additional packages
-        view.conditionalRegisterPackage('graphicx')
-        view.conditionalRegisterPackage('wrapfig')
-        return '\n'.join(latex)
+            return []
+
+    def get_width_option(self):
+        """returns a list containing the width option for
+        \includegraphics command
+        """
+
+        if self.context.getWidth() == 100:
+            val = r'\columnwidth'
+        else:
+            val = r'%f\columnwidth' % (
+                self.context.getWidth() / float(100))
+
+        return [r'width=%s' % val]
