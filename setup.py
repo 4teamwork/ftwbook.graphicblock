@@ -7,7 +7,10 @@ maintainer = 'Jonas Baumann'
 
 
 tests_require = [
-    'zope.testing'
+    'zope.testing',
+    'plone.app.testing',
+    'plone.mocktestcase',
+    'ftw.testing',
     ]
 
 
@@ -49,8 +52,6 @@ setup(name='ftwbook.graphicblock',
         ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
-
-      test_suite = 'ftwbook.graphicblock.tests.test_docs.test_suite',
 
       entry_points="""
       # -*- Entry points: -*-
