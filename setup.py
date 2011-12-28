@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 
 
-version = open('ftwbook/graphicblock/version.txt').read().strip()
+version = '2.0dev'
 maintainer = 'Jonas Baumann'
 
 
