@@ -53,7 +53,9 @@ class GraphicblockView(BlockView):
         if not dimensions['width'] or not dimensions['height']:
             return ''
 
-        title = alt = self.context.getShowTitle() and self.context.Title() or ''
+        title = alt = self.context.getShowTitle() and \
+            self.context.Title() or ''
+
         return scales.scale(
             'preview',
             **dimensions).tag(title=title, alt=alt)
