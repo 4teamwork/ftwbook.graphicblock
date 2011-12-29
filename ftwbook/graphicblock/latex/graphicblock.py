@@ -1,18 +1,20 @@
-from plonegov.pdflatex.browser.converter import LatexCTConverter
+from ftw.pdfgenerator.view import MakoLaTeXView
+from ftwbook.graphicblock.interfaces import IGraphicBlock
+from zope.component import adapts
+from zope.interface import Interface
 
 
-class GraphicBlockLatexConverter(LatexCTConverter):
+class GraphicBlockLaTeXView(MakoLaTeXView):
+    adapts(IGraphicBlock, Interface, Interface)
 
-    def __call__(self, context, view):
-        self.context = context
-        self.view = view
+
+    def render(self):
+        self.layout.use_package('graphicx')
+        self.layout.use_package('wrapfig')
 
         return '\n'.join(self.get_latex())
 
     def get_latex(self):
-        self.view.conditionalRegisterPackage('graphicx')
-        self.view.conditionalRegisterPackage('wrapfig')
-
         graphicname = self.register_image()
 
         yield r'\begin{center}'
@@ -27,9 +29,10 @@ class GraphicBlockLatexConverter(LatexCTConverter):
         """register the graphic file. returns the graphic name
         """
 
-        graphicname = '%s_graphic' % self.context.UID()
-        self.view.addImage(uid=graphicname,
-                           image=self.context.getFile())
+        graphicname = '%s_graphic.pdf' % self.context.UID()
+        self.layout.get_builder().add_file(
+            graphicname, str(self.context.getFile().data))
+
         return graphicname
 
     def get_includegraphics_cmd(self, graphicname):
@@ -78,7 +81,7 @@ class GraphicBlockLatexConverter(LatexCTConverter):
         if self.context.getWidth() == 100:
             val = r'\columnwidth'
         else:
-            val = r'%f\columnwidth' % (
+            val = r'%s\columnwidth' % str(
                 self.context.getWidth() / float(100))
 
         return [r'width=%s' % val]

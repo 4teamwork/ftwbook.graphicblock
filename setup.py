@@ -48,6 +48,7 @@ setup(name='ftwbook.graphicblock',
       install_requires=[
         'setuptools',
         'ftw.book',
+        'ftw.pdfgenerator',
         'simplelayout.base',
         ],
       tests_require=tests_require,

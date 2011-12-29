@@ -2,8 +2,12 @@ Changelog
 =========
 
 
-1.0b2
------
+2.0 (unreleased)
+----------------
+
+- Use ftw.pdfgenerator instead of plonegov.pdflatex. This is compatible with
+  the new ftw.book version (>=2).
+  [jone]
 
 
 1.0b1
