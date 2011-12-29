@@ -1,0 +1,24 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="ftw.book">
+
+    <!-- basic ZCML support -->
+    <include package="z3c.autoinclude" file="meta.zcml" />
+    <include package="Products.CMFPlone" file="meta.zcml" />
+    <include package="Products.Five" file="meta.zcml" />
+    <include package="Products.Five.viewlet" file="meta.zcml" />
+    <include package="Products.Five.browser" file="meta.zcml" />
+
+    <!-- register missing view permission -->
+    <permission
+        id="zope2.View"
+        title="View"
+        />
+
+    <!-- load some dependencies -->
+    <include package="plone.app.imaging" />
+    <include package="plone.app.layout.globals" />
+
+    <!-- load our own zcml -->
+    <include package="ftwbook.graphicblock" />
+
+</configure>
