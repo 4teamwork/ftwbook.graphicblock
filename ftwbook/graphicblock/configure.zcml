@@ -5,6 +5,9 @@
       xmlns:i18n="http://namespaces.zope.org/i18n"
       i18n_domain="ftwbook.graphicblock">
 
+    <!-- include dependencies -->
+    <includeDependencies package="." />
+
     <five:registerPackage package="." initialize=".initialize" />
 
     <i18n:registerTranslations directory="locales" />
