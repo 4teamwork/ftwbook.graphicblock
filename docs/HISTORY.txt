@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0 (unreleased)
+2.0 (2012-03-05)
 ----------------
 
 - Use ftw.pdfgenerator instead of plonegov.pdflatex. This is compatible with
