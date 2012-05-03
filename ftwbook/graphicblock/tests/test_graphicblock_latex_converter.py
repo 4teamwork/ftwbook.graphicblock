@@ -3,7 +3,12 @@ from ftw.testing import MockTestCase
 from ftwbook.graphicblock.interfaces import IGraphicBlock
 from ftwbook.graphicblock.latex.graphicblock import GraphicBlockLaTeXView
 from ftwbook.graphicblock.testing import BASIC_ZCML_LAYER
+from plone.mocktestcase.dummy import Dummy
+from zope.app.component.hooks import setSite
+from zope.component import getGlobalSiteManager
 from zope.component import getMultiAdapter
+from zope.i18n.interfaces import IUserPreferredLanguages
+from zope.interface import alsoProvides
 
 
 class TestGraphicBlockLaTeXView_component(MockTestCase):
@@ -23,6 +28,20 @@ class TestGraphicBlockLaTeXView_component(MockTestCase):
 
 
 class TestGraphicBlockLaTeXView_UnitTests(MockTestCase):
+
+    def setUp(self):
+        setSite(self._create_site_with_request())
+
+    def tearDown(self):
+        setSite(None)
+
+    def _create_site_with_request(self):
+        request = Dummy(getPreferredLanguages=lambda: [])
+        alsoProvides(request, IUserPreferredLanguages)
+        site = Dummy(REQUEST=request,
+                     getSiteManager=getGlobalSiteManager)
+
+        return site
 
     def test_render(self):
         context = self.stub()
@@ -53,6 +72,10 @@ class TestGraphicBlockLaTeXView_UnitTests(MockTestCase):
         self.expect(layout.use_package('graphicx'))
         self.expect(layout.use_package('wrapfig'))
 
+        # caption conversion
+        self.expect(layout.get_converter().convert('My graph')).result(
+            'My Graph Caption')
+
         self.replay()
 
         view = GraphicBlockLaTeXView(context, request, layout)
@@ -62,7 +85,17 @@ class TestGraphicBlockLaTeXView_UnitTests(MockTestCase):
                 r'\begin{center}',
                 r'\includegraphics[width=0.25\columnwidth,clip,' + \
                     r'trim=10mm 20mm 30mm 40mm]{789_graphic.pdf}',
-                r'\caption{My graph}',
+
+                r'\center{',
+                r'\addtocounter{figure}{1}',
+                r'\addcontentsline{lof}{figure}{' + \
+                    r'\protect\numberline ' + \
+                    r'{\thechapter.\arabic{figure}}' + \
+                    r'{\ignorespaces My Graph Caption}' + \
+                    r'}',
+                r'Figure \thechapter.\arabic{figure}: My Graph Caption',
+                r'}',
+
                 r'\end{center}'))
 
         self.assertEqual(latex, expected_latex)

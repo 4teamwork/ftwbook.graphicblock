@@ -1,3 +1,4 @@
+from ftw.pdfgenerator.html2latex.utils import generate_manual_caption
 from ftw.pdfgenerator.view import MakoLaTeXView
 from ftwbook.graphicblock.interfaces import IGraphicBlock
 from zope.component import adapts
@@ -21,7 +22,9 @@ class GraphicBlockLaTeXView(MakoLaTeXView):
         yield self.get_includegraphics_cmd(graphicname)
 
         if self.context.getShowTitle():
-            yield r'\caption{%s}' % self.context.Title()
+
+            yield generate_manual_caption(
+                self.convert(self.context.Title()), 'figure').strip()
 
         yield r'\end{center}'
 
