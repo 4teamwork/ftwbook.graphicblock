@@ -8,5 +8,6 @@ ADD_PERMISSIONS = {
     'GraphicBlock': 'ftwbook.graphicblock: Add GraphicBlock',
     }
 
+
 # XXX: make customizable
-PREVIEW_MAX_WIDTH = 730 # px
+PREVIEW_MAX_WIDTH = 730  # px

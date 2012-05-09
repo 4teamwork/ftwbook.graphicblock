@@ -8,7 +8,6 @@ from zope.interface import Interface
 class GraphicBlockLaTeXView(MakoLaTeXView):
     adapts(IGraphicBlock, Interface, Interface)
 
-
     def render(self):
         self.layout.use_package('graphicx')
         self.layout.use_package('wrapfig')

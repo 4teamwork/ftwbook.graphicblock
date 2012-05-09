@@ -59,5 +59,3 @@ class GraphicblockView(BlockView):
         return scales.scale(
             'preview',
             **dimensions).tag(title=title, alt=alt)
-
-
