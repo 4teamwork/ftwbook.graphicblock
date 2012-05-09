@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1 (unreleased)
+2.1 (2012-05-09)
 ----------------
 
 - LaTeX: use special caption implementation since we have a non-floating environment.
