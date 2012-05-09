@@ -16,9 +16,8 @@ tests_require = [
 
 setup(name='ftwbook.graphicblock',
       version=version,
-      description='Addon for `ftw.book` providing an additional ' + \
-          'graphicblock for including PDF documents in the book. ' + \
-          '(Maintainer: %s)' % maintainer,
+      description='Addon for `ftw.book` providing a graphics ' + \
+          'block for including PDF documents in the book.',
       long_description=open("README.rst").read() + "\n" + \
           open(os.path.join("docs", "HISTORY.txt")).read(),
 
@@ -33,10 +32,10 @@ setup(name='ftwbook.graphicblock',
         ],
 
       keywords='ftw book graphicblock pdf',
-      author='%s, 4teamwork GmbH' % maintainer,
+      author='4teamwork GmbH',
       author_email='mailto:info@4teamwork.ch',
       maintainer=maintainer,
-      url='http://git.4teamwork.ch/',
+      url='https://github.com/4teamwork/ftwbook.graphicblock',
 
       license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
