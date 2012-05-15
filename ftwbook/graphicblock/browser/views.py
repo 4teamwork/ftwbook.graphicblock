@@ -38,7 +38,7 @@ class GraphicblockView(BlockView):
 
         preview = self.context.getField('preview').getRaw(self.context)
 
-        width = content_width * width_scale
+        width = int(content_width * width_scale)
         height = int(
             (float(preview.height) / float(preview.width))
             * width)
@@ -52,6 +52,7 @@ class GraphicblockView(BlockView):
         dimensions = self.get_preview_dimensions()
         if not dimensions['width'] or not dimensions['height']:
             return ''
+
 
         title = alt = self.context.getShowTitle() and \
             self.context.Title() or ''
