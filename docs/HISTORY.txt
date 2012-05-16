@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.2 (unreleased)
+2.2 (2012-05-16)
 ----------------
 
 - Fix bug in preview width calculation which causes plone.app.scaling to fail.
