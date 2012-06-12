@@ -86,7 +86,7 @@ class TestGraphicBlockLaTeXView_UnitTests(MockTestCase):
                 r'\includegraphics[width=0.25\columnwidth,clip,' + \
                     r'trim=10mm 20mm 30mm 40mm]{789_graphic.pdf}',
 
-                r'\center{',
+                r'\begin{center}',
                 r'\addtocounter{figure}{1}',
                 r'\addcontentsline{lof}{figure}{' + \
                     r'\protect\numberline ' + \
@@ -94,7 +94,7 @@ class TestGraphicBlockLaTeXView_UnitTests(MockTestCase):
                     r'{\ignorespaces My Graph Caption}' + \
                     r'}',
                 r'Figure \thechapter.\arabic{figure}: My Graph Caption',
-                r'}',
+                r'\end{center}',
 
                 r'\end{center}'))
 
