@@ -1,20 +1,13 @@
 <configure
-      xmlns="http://namespaces.zope.org/zope"
-      xmlns:five="http://namespaces.zope.org/five"
-      i18n_domain="ftwbook.graphicblock">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="ftwbook.graphicblock">
 
     <class class=".graphicblock.GraphicBlock">
-
         <require
-              permission="zope2.View"
-              interface="..interfaces.IGraphicBlock"
-              />
-
-        <require
-              permission="cmf.ModifyPortalContent"
-              set_schema="..interfaces.IGraphicBlock"
-              />
-
+            permission="zope2.View"
+            interface="..interfaces.IGraphicBlock"
+            />
     </class>
 
 </configure>

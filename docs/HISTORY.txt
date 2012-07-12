@@ -5,7 +5,8 @@ Changelog
 2.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remedy deprecation warning "set_schema not supported".
+  [jone]
 
 
 2.2 (2012-05-16)
