@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.2.1 (unreleased)
+2.2.1 (2012-10-16)
 ------------------
 
 - Remedy deprecation warning "set_schema not supported".
