@@ -25,6 +25,7 @@ class TestGraphicblockView(MockTestCase):
     layer = BASIC_ZCML_LAYER
 
     def setUp(self):
+        super(TestGraphicblockView, self).setUp()
         self.testcase_mocker = Mocker()
 
         # stub getToolByName by replacing it
@@ -65,6 +66,7 @@ class TestGraphicblockView(MockTestCase):
             ISimplelayoutConfiguration, name='sl-config') == None
 
         self.testcase_mocker.verify()
+        super(TestGraphicblockView, self).tearDown()
 
     def _mock_objects(self, context_interfaces=None):
         mocks = self.create_dummy()

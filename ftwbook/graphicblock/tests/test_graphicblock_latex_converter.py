@@ -30,10 +30,12 @@ class TestGraphicBlockLaTeXView_component(MockTestCase):
 class TestGraphicBlockLaTeXView_UnitTests(MockTestCase):
 
     def setUp(self):
+        super(TestGraphicBlockLaTeXView_UnitTests, self).setUp()
         setSite(self._create_site_with_request())
 
     def tearDown(self):
         setSite(None)
+        super(TestGraphicBlockLaTeXView_UnitTests, self).tearDown()
 
     def _create_site_with_request(self):
         request = Dummy(getPreferredLanguages=lambda: [])
