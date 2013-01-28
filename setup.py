@@ -21,14 +21,15 @@ setup(name='ftwbook.graphicblock',
       long_description=open("README.rst").read() + "\n" + \
           open(os.path.join("docs", "HISTORY.txt")).read(),
 
+      # Get more strings from
+      # http://www.python.org/pypi?%3Aaction=list_classifiers
+
       classifiers=[
-        'Environment :: Web Environment',
         'Framework :: Plone',
-        'Framework :: Zope2',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Operating System :: Unix',
+        'Framework :: Plone :: 4.1',
+        'Framework :: Plone :: 4.2',
         'Programming Language :: Python',
-        'Topic :: Printing',
+        'Topic :: Software Development :: Libraries :: Python Modules',
         ],
 
       keywords='ftw book graphicblock pdf',
