@@ -5,7 +5,8 @@ Changelog
 2.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Plone 4.3 compatibility.
+  [jone]
 
 
 2.2.1 (2012-10-16)
