@@ -4,9 +4,9 @@ from ftwbook.graphicblock.interfaces import IGraphicBlock
 from ftwbook.graphicblock.latex.graphicblock import GraphicBlockLaTeXView
 from ftwbook.graphicblock.testing import BASIC_ZCML_LAYER
 from plone.mocktestcase.dummy import Dummy
-from zope.app.component.hooks import setSite
 from zope.component import getGlobalSiteManager
 from zope.component import getMultiAdapter
+from zope.component.hooks import setSite
 from zope.i18n.interfaces import IUserPreferredLanguages
 from zope.interface import alsoProvides
 
