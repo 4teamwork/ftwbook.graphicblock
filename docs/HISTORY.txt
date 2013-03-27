@@ -5,6 +5,9 @@ Changelog
 2.2.2 (unreleased)
 ------------------
 
+- Lawgiver support: map permissions.
+  [jone]
+
 - Plone 4.3 compatibility.
   [jone]
 
