@@ -5,7 +5,9 @@ Changelog
 2.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- No longer use simplelayout.types.common's view.
+  s.t.common is deprecated.
+  [jone]
 
 
 2.2.2 (2013-04-17)
