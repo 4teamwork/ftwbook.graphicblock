@@ -14,11 +14,7 @@
         title="View"
         />
 
-    <!-- load some dependencies -->
-    <include package="plone.app.imaging" />
-    <include package="plone.app.layout.globals" />
-
     <!-- load our own zcml -->
-    <include package="ftwbook.graphicblock" />
+    <include package="ftwbook.graphicblock.latex" />
 
 </configure>

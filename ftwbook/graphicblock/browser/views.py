@@ -1,10 +1,11 @@
+from Products.Five.browser import BrowserView
 from simplelayout.base.config import CONFIGLET_INTERFACE_MAP
+from simplelayout.base.interfaces import IBlockConfig
 from simplelayout.base.utils import SlUtils
-from simplelayout.types.common.browser.views import BlockView
 from zope.component import queryUtility, queryMultiAdapter
 
 
-class GraphicblockView(BlockView):
+class GraphicblockView(BrowserView):
     """Simplelayout view for graphic blocks.
     """
 
@@ -60,3 +61,17 @@ class GraphicblockView(BlockView):
         return scales.scale(
             'preview',
             **dimensions).tag(title=title, alt=alt)
+
+    def getCSSClass(self):
+        blockconfig = IBlockConfig(self.context)
+
+        if blockconfig.image_layout is None:
+            return 'sl-img-no-image'
+        else:
+            return 'sl-img-' + blockconfig.image_layout
+
+    def getBlockHeight(self):
+        blockconfig = IBlockConfig(self.context)
+
+        height = blockconfig.block_height
+        return  height and '%spx' % height or ''
