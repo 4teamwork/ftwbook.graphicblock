@@ -37,9 +37,9 @@ Installation
 Links
 -----
 
-- Main github project repository: https://github.com/4teamwork/ftwbook.graphicblock
-- Issue tracker: https://github.com/4teamwork/ftwbook.graphicblock/issues
-- Package on pypi: http://pypi.python.org/pypi/ftwbook.graphicblock
+- Github: https://github.com/4teamwork/ftwbook.graphicblock
+- Issues: https://github.com/4teamwork/ftwbook.graphicblock/issues
+- Pypi: http://pypi.python.org/pypi/ftwbook.graphicblock
 - Continuous integration: https://jenkins.4teamwork.ch/search?q=ftwbook.graphicblock
 
 
