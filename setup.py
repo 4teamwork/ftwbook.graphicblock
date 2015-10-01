@@ -49,6 +49,7 @@ setup(name='ftwbook.graphicblock',
       zip_safe=False,
 
       install_requires=[
+        'Plone',
         'setuptools',
         'ftw.book',
         'ftw.pdfgenerator',
