@@ -1,6 +1,6 @@
 <object name="portal_types" meta_type="Plone Types Tool">
 
     <object name="GraphicBlock"
-            meta_type="Factory-based Type Information with dynamic views"/>
+            remove="true"/>
 
 </object>

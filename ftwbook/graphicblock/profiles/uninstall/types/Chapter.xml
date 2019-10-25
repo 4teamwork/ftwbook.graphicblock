@@ -2,7 +2,8 @@
 <object name="Chapter">
 
     <property name="allowed_content_types" purge="false">
-        <element value="GraphicBlock"/>
+        <element value="GraphicBlock" remove="true" />
     </property>
 
 </object>
+
