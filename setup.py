@@ -13,6 +13,7 @@ tests_require = [
     'ftw.testing',
     'ftw.testbrowser',
     'ftw.builder',
+    'ftw.book [tests]',
     ]
 
 

@@ -8,6 +8,7 @@ Changelog
 - Drop Plone 4.1 support. [jone]
 - Introduce uninstall profile. [busykoala]
 - Introduce upgrade steps. [busykoala]
+- Reimplement Graphicblock with Dexterity [busykoala, jone].
 
 
 2.2.3 (2014-07-15)

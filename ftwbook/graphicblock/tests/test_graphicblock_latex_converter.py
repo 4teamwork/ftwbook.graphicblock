@@ -1,9 +1,13 @@
+from ftw.builder import Builder
+from ftw.builder import create
 from ftw.pdfgenerator.interfaces import ILaTeXView
 from ftw.testing import MockTestCase
 from ftwbook.graphicblock.interfaces import IGraphicBlock
 from ftwbook.graphicblock.latex.graphicblock import GraphicBlockLaTeXView
 from ftwbook.graphicblock.testing import BASIC_ZCML_LAYER
+from ftwbook.graphicblock.testing import GRAPHICBLOCK_FUNCTIONAL_TESTING
 from plone.mocktestcase.dummy import Dummy
+from unittest2 import TestCase
 from zope.component import getGlobalSiteManager
 from zope.component import getMultiAdapter
 from zope.component.hooks import setSite
@@ -11,26 +15,30 @@ from zope.i18n.interfaces import IUserPreferredLanguages
 from zope.interface import alsoProvides
 
 
-class TestGraphicBlockLaTeXView_component(MockTestCase):
+class TestGraphicBlockLaTeXView_component(TestCase):
+    layer = GRAPHICBLOCK_FUNCTIONAL_TESTING
 
-    layer = BASIC_ZCML_LAYER
+    def setUp(self):
+        super(TestGraphicBlockLaTeXView_component, self).setUp()
+        self.request = self.layer['request']
+        self.graphicblock = create(Builder('graphicblock')
+                                   .titled(u'Test GraphicBlock'))
 
     def test_component_registered(self):
-        context = self.providing_stub([IGraphicBlock])
-        request = self.create_dummy()
-        layer = self.create_dummy()
-
-        self.replay()
-
-        view = getMultiAdapter((context, request, layer), ILaTeXView)
+        view = getMultiAdapter((self.graphicblock, self.request, self.layer),
+                               ILaTeXView)
 
         self.assertTrue(isinstance(view, GraphicBlockLaTeXView))
 
 
-class TestGraphicBlockLaTeXView_UnitTests(MockTestCase):
+class TestGraphicBlockLaTeXView(TestCase):
+    layer = GRAPHICBLOCK_FUNCTIONAL_TESTING
 
     def setUp(self):
         super(TestGraphicBlockLaTeXView_UnitTests, self).setUp()
+        self.request = self.layer['request']
+        self.graphicblock = create(Builder('graphicblock')
+                                   .titled(u'Test GraphicBlock'))
         setSite(self._create_site_with_request())
 
     def tearDown(self):

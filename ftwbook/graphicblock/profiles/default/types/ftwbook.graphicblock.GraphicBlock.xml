@@ -1,25 +1,30 @@
 <?xml version="1.0"?>
-<object name="GraphicBlock"
-        meta_type="Factory-based Type Information with dynamic views"
-        i18n:domain="ftwbook.graphicblock"
-        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object name="ftwbook.graphicblock.GraphicBlock"
+        meta_type="Dexterity FTI"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="ftwbook.graphicblock">
 
-    <property name="title" i18n:translate="">GraphicBlock</property>
-    <property name="description"
-              i18n:translate="GraphicBlock_description"></property>
-    <property name="content_meta_type">GraphicBlock</property>
-    <property name="content_icon">++resource++simplelayout.types.common-resources/paragraph_icon.gif</property>
+    <property name="content_meta_type">ftwbook.graphicblock.GraphicBlock</property>
 
-    <property name="product">ftwbook.graphicblock</property>
-    <property name="factory">addGraphicBlock</property>
-    <property name="immediate_view">atct_edit</property>
+    <property name="title"
+              i18n:translate="ftwbook.graphicblock.GraphicBlock_description">GraphicBlock</property>
+    <property name="description"></property>
+    <property name="icon_expr"></property>
+    <property name="allow_discussion">False</property>
     <property name="global_allow">False</property>
     <property name="filter_content_types">False</property>
-    <property name="allow_discussion">False</property>
+    <property name="allowed_content_types">
+        <element value="ftwbook.graphicblock.GraphicBlock"/>
+    </property>
+
+    <property name="schema">ftwbook.graphicblock.contents.graphicblock.IGraphicBlockSchema</property>
+    <property name="klass">ftwbook.graphicblock.contents.graphicblock.GraphicBlock</property>
+    <property name="add_permission">ftwbook.graphicblock.GraphicBlock</property>
 
     <property name="default_view">paragraph_view</property>
+    <property name="default_view_fallback">False</property>
     <property name="view_methods">
-        <element value="paragraph_view" />
+        <element value="paragraph_view"/>
     </property>
 
     <alias from="(Default)" to="(dynamic view)"/>

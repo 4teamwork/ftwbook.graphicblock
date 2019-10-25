@@ -1,15 +1,16 @@
 from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import functional_session_factory
 from ftw.builder.testing import set_builder_session_factory
-from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
 from plone.testing import Layer
 from plone.testing import z2
 from plone.testing import zca
 from zope.configuration import xmlconfig
 import ftw.book.tests.builders
+import ftwbook.graphicblock.tests.builders
 
 
 class BasicZCMLLayer(Layer):
