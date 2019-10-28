@@ -1,6 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser">
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:theming="http://namespaces.zope.org/ftw.theming"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
 
   <browser:page
       for="ftwbook.graphicblock.interfaces.IGraphicBlock"
@@ -9,5 +11,14 @@
       class=".views.GraphicblockView"
       permission="zope2.View"
       />
+
+  <configure zcml:condition="installed ftw.theming">
+    <include package="ftw.theming" file="meta.zcml"/>
+    <theming:scss
+        file="resources/theming.scss"
+        profile="ftwbook.graphicblock:default"
+        slot="addon"
+        />
+  </configure>
 
 </configure>
