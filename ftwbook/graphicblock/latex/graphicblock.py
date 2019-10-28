@@ -1,17 +1,16 @@
 from ftw.pdfgenerator.html2latex.utils import generate_manual_caption
 from ftw.pdfgenerator.view import MakoLaTeXView
 from ftwbook.graphicblock.interfaces import IGraphicBlock
-from zope.component import adapts
+from zope.component import adapter
 from zope.interface import Interface
 
 
+@adapter(IGraphicBlock, Interface, Interface)
 class GraphicBlockLaTeXView(MakoLaTeXView):
-    adapts(IGraphicBlock, Interface, Interface)
 
     def render(self):
         self.layout.use_package('graphicx')
         self.layout.use_package('wrapfig')
-
         return '\n'.join(self.get_latex())
 
     def get_latex(self):
@@ -20,35 +19,23 @@ class GraphicBlockLaTeXView(MakoLaTeXView):
         yield r'\begin{center}'
         yield self.get_includegraphics_cmd(graphicname)
 
-        if self.context.getShowTitle():
-
+        if self.context.show_title:
             yield generate_manual_caption(
                 self.convert(self.context.Title()), 'figure').strip()
 
         yield r'\end{center}'
 
     def register_image(self):
-        """register the graphic file. returns the graphic name
-        """
+        name = '%s_graphic.pdf' % self.context.UID()
+        with self.context.file.open('r') as fio:
+            self.layout.get_builder().add_file(name, fio)
+        return name
 
-        graphicname = '%s_graphic.pdf' % self.context.UID()
-        self.layout.get_builder().add_file(
-            graphicname, str(self.context.getFile().data))
-
-        return graphicname
-
-    def get_includegraphics_cmd(self, graphicname):
-        """return the \includegraphics command with arguments
-        """
-
+    def get_includegraphics_cmd(self, name):
         options = []
-
         options.extend(self.get_width_option())
         options.extend(self.get_trim_options())
-
-        return r'\includegraphics[%s]{%s}' % (
-            ','.join(options),
-            graphicname)
+        return r'\includegraphics[%s]{%s}' % (','.join(options), name)
 
     def get_trim_options(self):
         """returns a list containing clip / trim options for the
@@ -57,21 +44,15 @@ class GraphicBlockLaTeXView(MakoLaTeXView):
         """
 
         # trim must be in order left, bottom, right, top
-        trim_config = (self.context.getTrim_left(),
-                       self.context.getTrim_bottom(),
-                       self.context.getTrim_right(),
-                       self.context.getTrim_top())
+        trim_config = (self.context.trim_left or 0,
+                       self.context.trim_bottom or 0,
+                       self.context.trim_right or 0,
+                       self.context.trim_top or 0)
 
         # trim / clip only if at least one side should be trimmed
         if sum(trim_config) > 0:
-
-            trimopt = ' '.join(['%smm' % trim
-                                for trim in trim_config])
-
-            return ['clip',
-                    'trim=%s' % trimopt,
-                    ]
-
+            trimopt = ' '.join(['%smm' % trim for trim in trim_config])
+            return ['clip', 'trim=%s' % trimopt]
         else:
             return []
 
@@ -80,10 +61,8 @@ class GraphicBlockLaTeXView(MakoLaTeXView):
         \includegraphics command
         """
 
-        if self.context.getWidth() == 100:
+        if not self.context.width or self.context.width == 100:
             val = r'\columnwidth'
         else:
-            val = r'%s\columnwidth' % str(
-                self.context.getWidth() / float(100))
-
+            val = r'%s\columnwidth' % str(self.context.width / 100.0)
         return [r'width=%s' % val]

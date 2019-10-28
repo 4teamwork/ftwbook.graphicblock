@@ -4,7 +4,7 @@
     i18n_domain="ftwbook.graphicblock">
 
   <adapter
-      factory="ftwbook.graphicblock.latex.graphicblock.GraphicBlockLaTeXView"
+      factory=".graphicblock.GraphicBlockLaTeXView"
       provides="ftw.pdfgenerator.interfaces.IRecursiveLaTeXView"
       />
 
