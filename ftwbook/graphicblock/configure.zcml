@@ -7,20 +7,17 @@
     xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
     i18n_domain="ftwbook.graphicblock">
 
+  <include package="ftw.upgrade" file="meta.zcml" />
+
   <five:registerPackage package="." initialize=".initialize" />
   <i18n:registerTranslations directory="locales" />
 
-  <!-- Include the sub-packages that use their own configure.zcml files. -->
+  <include file="lawgiver.zcml" zcml:condition="installed ftw.lawgiver" />
+  <include file="permissions.zcml" />
   <include package=".browser" />
   <include package=".content" />
   <include package=".latex" />
 
-  <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
-  <include package="ftw.upgrade" file="meta.zcml" />
-
-  <include file="permissions.zcml" />
-
-  <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
       title="ftwbook.graphicblock"
@@ -36,14 +33,17 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- Event Subscribers -->
+  <upgrade-step:directory
+      profile="ftwbook.graphicblock:default"
+      directory="upgrades"
+      />
+
   <subscriber
       for=".interfaces.IGraphicBlock
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
       handler=".eventhandlers.create_preview"
       />
 
-  <!-- Graphic converter (for web preview) -->
   <adapter
       factory="ftwbook.graphicblock.converter.GraphicConverter"
       />
@@ -56,11 +56,6 @@
   <adapter
       name="application-pdf"
       factory="ftwbook.graphicblock.converter.PDFConverter"
-      />
-
-  <upgrade-step:directory
-      profile="ftwbook.graphicblock:default"
-      directory="upgrades"
       />
 
 </configure>
