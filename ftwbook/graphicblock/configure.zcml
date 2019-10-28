@@ -41,7 +41,13 @@
   <subscriber
       for=".interfaces.IGraphicBlock
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-      handler=".eventhandlers.create_preview"
+      handler=".subscribers.create_preview"
+      />
+
+  <subscriber
+      for=".interfaces.IGraphicBlock
+           zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+      handler=".subscribers.create_preview"
       />
 
   <adapter factory=".converter.GraphicConverter" />
