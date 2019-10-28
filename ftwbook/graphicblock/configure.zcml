@@ -15,7 +15,6 @@
   <include file="lawgiver.zcml" zcml:condition="installed ftw.lawgiver" />
   <include file="permissions.zcml" />
   <include package=".browser" />
-  <include package=".content" />
   <include package=".latex" />
 
   <genericsetup:registerProfile
