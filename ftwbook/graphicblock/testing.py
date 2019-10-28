@@ -9,8 +9,8 @@ from plone.testing import Layer
 from plone.testing import z2
 from plone.testing import zca
 from zope.configuration import xmlconfig
-import ftw.book.tests.builders
-import ftwbook.graphicblock.tests.builders
+import ftw.book.tests.builders  # noqa
+import ftwbook.graphicblock.tests.builders  # noqa
 
 
 class BasicZCMLLayer(Layer):
@@ -33,7 +33,6 @@ class BasicZCMLLayer(Layer):
 
 
 BASIC_ZCML_LAYER = BasicZCMLLayer()
-
 
 
 class GraphicblockLayer(PloneSandboxLayer):
