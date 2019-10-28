@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-10-28 13:35+0000\n"
+"POT-Creation-Date: 2019-10-28 16:32+0000\n"
 "PO-Revision-Date: 2011-08-09 21:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,6 @@ msgstr "Trim top (mm)"
 
 #. Default: "Graphic width (%)"
 #: ./ftwbook/graphicblock/contents/graphicblock.py:38
-#, fuzzy
 msgid "label_width"
 msgstr "Scale graphic to width (%)"
 
