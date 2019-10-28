@@ -1,28 +1,29 @@
-from PIL import Image, ImageDraw, ImageFont
-from Products.ATContentTypes.lib.imagetransform import ATCTImageTransform
-from Products.CMFPlone.utils import normalizeString
-from StringIO import StringIO
 from ftwbook.graphicblock import _
 from ftwbook.graphicblock.interfaces import IGraphicConverter
 from ftwbook.graphicblock.interfaces import ITypeSpecificConverter
+from PIL import Image, ImageDraw, ImageFont
+from Products.ATContentTypes.lib.imagetransform import ATCTImageTransform
+from Products.CMFPlone.utils import normalizeString
 from shutil import rmtree
+from StringIO import StringIO
 from subprocess import call
-from zope.component import adapts
-from zope.component import queryMultiAdapter, getMultiAdapter
-from zope.interface import implements, Interface
+from zope.component import adapter
+from zope.component import getMultiAdapter
+from zope.component import queryMultiAdapter
+from zope.interface import implementer
+from zope.interface import Interface
 import logging
 import os
 import tempfile
 
 
+@implementer(IGraphicConverter)
+@adapter(Interface, Interface)
 class GraphicConverter(object):
     """IGraphicConverter adapter for converting a file to a preview image.
     Searches for more specific IGraphicConverter adapters, depending on the
     content-type of the file or falls back to the FallbackGraphicConverter.
     """
-
-    implements(IGraphicConverter)
-    adapts(Interface, Interface)
 
     def __init__(self, context, graphic):
         self.context = context
@@ -44,14 +45,13 @@ class GraphicConverter(object):
         return converter()
 
 
+@implementer(ITypeSpecificConverter)
+@adapter(Interface, Interface)
 class BaseGraphicConverter(object):
     """Base graphic converter to super class graphic converter.
     Provides a method get_data returning the file data and a
     method generate_error_image(message).
     """
-
-    implements(ITypeSpecificConverter)
-    adapts(Interface, Interface)
 
     def __init__(self, context, graphic):
         self.context = context
@@ -95,6 +95,8 @@ class BaseGraphicConverter(object):
         return data
 
 
+@implementer(ITypeSpecificConverter)
+@adapter(Interface, Interface)
 class FallbackGraphicConverter(BaseGraphicConverter):
     """Fallback graphic converter, trying to convert the image with
     ATCTImageTransform
@@ -104,6 +106,8 @@ class FallbackGraphicConverter(BaseGraphicConverter):
         return self.get_data()
 
 
+@implementer(ITypeSpecificConverter)
+@adapter(Interface, Interface)
 class PDFConverter(BaseGraphicConverter):
     """graphic converter converting PDF documents to preview images.
     """
