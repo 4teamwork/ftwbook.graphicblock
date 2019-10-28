@@ -5,8 +5,9 @@
   <browser:page
       for="ftwbook.graphicblock.interfaces.IGraphicBlock"
       name="block_view"
-      template="graphicblock.pt"
+      template="templates/graphicblock.pt"
       class=".views.GraphicblockView"
-      permission="zope2.View" />
+      permission="zope2.View"
+      />
 
 </configure>

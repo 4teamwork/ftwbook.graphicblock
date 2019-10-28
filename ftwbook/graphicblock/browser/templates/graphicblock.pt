@@ -1,0 +1,29 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="python: 1"
+      i18n:domain="ftwbook.graphicblock">
+  <metal:MAIN define-macro="main">
+
+    <metal:TITLE define-slot="title">
+    </metal:TITLE>
+
+    <metal:BODY define-slot="body"
+                tal:define="preview nocall:context/@@images/preview/sl_textblock_large|nothing">
+      <div class="graphicblock">
+
+        <div class="graphicblock-image" tal:condition="preview" >
+          <a tal:attributes="href string:${here/absolute_url}/@@download">
+            <img tal:replace="structure preview" />
+          </a>
+        </div>
+
+        <div class="graphicblock-label"
+             tal:condition="context/show_title"
+             tal:content="context/title" />
+
+      </div>
+    </metal:BODY>
+
+  </metal:MAIN>
+</html>
