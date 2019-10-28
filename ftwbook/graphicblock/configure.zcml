@@ -27,9 +27,10 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="ftwbook.graphicblock uninstall"
+      title="Uninstall ftwbook.graphicblock"
       directory="profiles/uninstall"
       provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
       />
 
   <upgrade-step:directory
