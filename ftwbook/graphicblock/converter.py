@@ -30,7 +30,7 @@ class GraphicConverter(object):
         self.graphic = graphic
 
     def __call__(self):
-        contenttype = normalizeString(self.graphic.content_type,
+        contenttype = normalizeString(self.graphic.contentType,
                                       context=self.context)
 
         converter = queryMultiAdapter((self.context, self.graphic),
