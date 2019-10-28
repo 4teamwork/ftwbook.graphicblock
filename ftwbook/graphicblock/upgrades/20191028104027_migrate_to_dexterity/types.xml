@@ -1,5 +1,6 @@
 <object name="portal_types" meta_type="Plone Types Tool">
 
+  <object name="GraphicBlock" remove="true"/>
   <object name="ftwbook.graphicblock.GraphicBlock" meta_type="Dexterity FTI" />
 
 </object>
