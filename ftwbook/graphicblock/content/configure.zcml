@@ -3,11 +3,11 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="ftwbook.graphicblock">
 
-    <class class=".graphicblock.GraphicBlock">
-        <require
-            permission="zope2.View"
-            interface="..interfaces.IGraphicBlock"
-            />
-    </class>
+  <class class=".graphicblock.GraphicBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IGraphicBlock"
+        />
+  </class>
 
 </configure>

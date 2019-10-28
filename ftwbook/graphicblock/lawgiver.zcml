@@ -3,11 +3,11 @@
     xmlns:lawgiver="http://namespaces.zope.org/lawgiver"
     i18n_domain="ftwbook.graphicblock">
 
-    <include package="ftw.lawgiver" file="meta.zcml" />
+  <include package="ftw.lawgiver" file="meta.zcml" />
 
-    <lawgiver:map_permissions
-        action_group="edit"
-        permissions="ftwbook.graphicblock: Add GraphicBlock"
-        />
+  <lawgiver:map_permissions
+      action_group="edit"
+      permissions="ftwbook.graphicblock: Add GraphicBlock"
+      />
 
 </configure>
