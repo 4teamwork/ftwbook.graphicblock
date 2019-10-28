@@ -4,7 +4,7 @@
         xmlns:i18n="http://xml.zope.org/namespaces/i18n"
         i18n:domain="ftwbook.graphicblock">
 
-  <property name="title">GraphicBlock</property>
+  <property name="title" i18n:translate="">GraphicBlock</property>
   <property name="description"></property>
   <property name="icon_expr"></property>
   <property name="allow_discussion">False</property>

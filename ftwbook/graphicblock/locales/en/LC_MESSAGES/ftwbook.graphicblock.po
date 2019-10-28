@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-08-09 19:37+0000\n"
+"POT-Creation-Date: 2019-10-28 13:35+0000\n"
 "PO-Revision-Date: 2011-08-09 21:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,83 +10,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
-#: ./ftwbook/graphicblock/profiles/default/types/GraphicBlock.xml
+#: ./ftwbook/graphicblock/profiles/default/types/ftwbook.graphicblock.GraphicBlock.xml
+#: ./ftwbook/graphicblock/upgrades/20191028104027_migrate_to_dexterity/types/ftwbook.graphicblock.GraphicBlock.xml
 msgid "GraphicBlock"
 msgstr "Graphic Block"
 
 #. Default: "Preview"
-#: ./ftwbook/graphicblock/content/graphicblock.py:42
+#: ./ftwbook/graphicblock/contents/graphicblock.py:34
 msgid "Preview"
 msgstr "Preview"
 
+#: ./ftwbook/graphicblock/configure.zcml:34
+msgid "Uninstall ftwbook.graphicblock"
+msgstr ""
+
 #. Default: "ERROR: Could not generate PDF preview (Ghostscript error code: ${code})"
-#: ./ftwbook/graphicblock/converter.py:136
+#: ./ftwbook/graphicblock/converter.py:153
 msgid "error_ghostscript_pdf_preview"
 msgstr "ERROR: Could not generate PDF preview (Ghostscript error code: ${code})"
 
-#: ./ftwbook/graphicblock/content/graphicblock.py:33
-msgid "help_file"
-msgstr "The file should be uploaded as PDF-document for getting the best quality. Also ensure that custom fonts are embedded in the document."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:23
-msgid "help_showtitle"
-msgstr "Show the title as image caption."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:84
-msgid "help_trim_bottom"
-msgstr "Trim the image at the bottom."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:94
-msgid "help_trim_left"
-msgstr "Trim the image at the Left."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:74
-msgid "help_trim_right"
-msgstr "Trim the image at the Right."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:64
-msgid "help_trim_top"
-msgstr "Trim the image at the Top."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:54
-msgid "help_width"
-msgstr "Scale image to this percentage of the available width (usually the textwidth)."
+#: ./ftwbook/graphicblock/configure.zcml:26
+msgid "ftwbook.graphicblock"
+msgstr ""
 
 #. Default: "PDF file"
-#: ./ftwbook/graphicblock/content/graphicblock.py:31
+#: ./ftwbook/graphicblock/contents/graphicblock.py:29
 msgid "label_file"
 msgstr "PDF document"
 
-#. Default: "Show title"
-#: ./ftwbook/graphicblock/content/graphicblock.py:21
-msgid "label_showtitle"
-msgstr "Show title"
+#. Default: "Show title as legend"
+#: ./ftwbook/graphicblock/contents/graphicblock.py:24
+msgid "label_show_title"
+msgstr ""
+
+#. Default: "Title"
+#: ./ftwbook/graphicblock/contents/graphicblock.py:20
+msgid "label_title"
+msgstr ""
 
 #. Default: "Trim bottom (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:82
+#: ./ftwbook/graphicblock/contents/graphicblock.py:53
 msgid "label_trim_bottom"
 msgstr "Trim bottom (mm)"
 
 #. Default: "Trim left (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:92
+#: ./ftwbook/graphicblock/contents/graphicblock.py:58
 msgid "label_trim_left"
 msgstr "Trim left (mm)"
 
 #. Default: "Trim right (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:72
+#: ./ftwbook/graphicblock/contents/graphicblock.py:48
 msgid "label_trim_right"
 msgstr "Trim right (mm)"
 
 #. Default: "Trim top (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:62
+#: ./ftwbook/graphicblock/contents/graphicblock.py:43
 msgid "label_trim_top"
 msgstr "Trim top (mm)"
 
-#. Default: "Grapic width (%)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:52
+#. Default: "Graphic width (%)"
+#: ./ftwbook/graphicblock/contents/graphicblock.py:38
+#, fuzzy
 msgid "label_width"
 msgstr "Scale graphic to width (%)"
-
 
