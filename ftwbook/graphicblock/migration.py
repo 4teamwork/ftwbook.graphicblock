@@ -1,4 +1,5 @@
 from ftw.upgrade.migration import InplaceMigrator
+from zope.annotation.interfaces import IAnnotations
 
 try:
 
@@ -26,14 +27,24 @@ class GraphicBlockMigrator(InplaceMigrator):
                     'effectiveDate',
                     'excludeFromNav',
                     'expirationDate',
+                    'lastModifier',
+                    'searchwords',
+                    'showinsearch',
                     'subject',
                 )
             ),
             field_mapping={
                 'showTitle': 'show_title',
             },
-            additional_steps=additional_steps,
+            additional_steps=(
+                self.migrate_last_modifier,
+            ) + additional_steps,
             **kwargs)
 
     def query(self):
         return {'portal_type': 'GraphicBlock'}
+
+    def migrate_last_modifier(self, old_object, new_object):
+        value = getattr(old_object, 'lastModifier', None)
+        if value:
+            IAnnotations(new_object)['collective.lastmodifier'] = value
