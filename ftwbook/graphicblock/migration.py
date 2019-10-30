@@ -1,5 +1,6 @@
 from ftw.upgrade.migration import InplaceMigrator
 from zope.annotation.interfaces import IAnnotations
+import os
 
 try:
 
@@ -40,6 +41,13 @@ class GraphicBlockMigrator(InplaceMigrator):
                 self.migrate_last_modifier,
             ) + additional_steps,
             **kwargs)
+
+    def migrate_object(self, old_object):
+        os.environ['GRAPHICBLOCK_SKIP_GENERATING_PREVIEW'] = 'true'
+        try:
+            return super(GraphicBlockMigrator, self).migrate_object(old_object)
+        finally:
+            os.environ.pop('GRAPHICBLOCK_SKIP_GENERATING_PREVIEW', None)
 
     def query(self):
         return {'portal_type': 'GraphicBlock'}
