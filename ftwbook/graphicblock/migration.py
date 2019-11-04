@@ -31,6 +31,7 @@ class GraphicBlockMigrator(BookTypeMigratorBase):
                     'searchwords',
                     'showinsearch',
                     'subject',
+                    'hideFromTOC',
                 )
             ),
             field_mapping={
