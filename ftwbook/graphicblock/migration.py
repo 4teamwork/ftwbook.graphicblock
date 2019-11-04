@@ -1,9 +1,8 @@
-from ftw.upgrade.migration import InplaceMigrator
-from zope.annotation.interfaces import IAnnotations
 import os
 
 try:
 
+    from ftw.book.migration import BookTypeMigratorBase
     from ftw.upgrade.migration import DUBLIN_CORE_IGNORES
     import ftwbook.graphicblock.content.graphicblock  # noqa
 
@@ -13,7 +12,7 @@ else:
     IMPORT_ERROR = None
 
 
-class GraphicBlockMigrator(InplaceMigrator):
+class GraphicBlockMigrator(BookTypeMigratorBase):
 
     def __init__(self, ignore_fields=(), additional_steps=(), **kwargs):
         if IMPORT_ERROR:
@@ -51,8 +50,3 @@ class GraphicBlockMigrator(InplaceMigrator):
 
     def query(self):
         return {'portal_type': 'GraphicBlock'}
-
-    def migrate_last_modifier(self, old_object, new_object):
-        value = getattr(old_object, 'lastModifier', None)
-        if value:
-            IAnnotations(new_object)['collective.lastmodifier'] = value
