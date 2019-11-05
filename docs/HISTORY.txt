@@ -10,6 +10,7 @@ Changelog
 - Introduce uninstall profile. [busykoala]
 - Introduce upgrade steps. [busykoala]
 - Reimplement Graphicblock with Dexterity [busykoala, jone].
+- Requires ``ftw.book >= 4.0.0``.
 
 
 2.2.3 (2014-07-15)

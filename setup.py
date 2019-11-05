@@ -50,7 +50,7 @@ setup(name='ftwbook.graphicblock',
       install_requires=[
         'Plone',
         'setuptools',
-        'ftw.book',
+        'ftw.book >= 4.0.0',
         'ftw.pdfgenerator',
         'ftw.upgrade',
         ],
