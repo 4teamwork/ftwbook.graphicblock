@@ -13,6 +13,7 @@ tests_require = [
     'ftw.testing',
     'ftw.testbrowser',
     'ftw.builder',
+    'ftw.book [tests]',
     ]
 
 
@@ -28,7 +29,6 @@ setup(name='ftwbook.graphicblock',
 
       classifiers=[
         'Framework :: Plone',
-        'Framework :: Plone :: 4.2',
         'Framework :: Plone :: 4.3',
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules',
@@ -50,9 +50,9 @@ setup(name='ftwbook.graphicblock',
       install_requires=[
         'Plone',
         'setuptools',
-        'ftw.book',
+        'ftw.book >= 4.0.0',
         'ftw.pdfgenerator',
-        'simplelayout.base',
+        'ftw.upgrade',
         ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),

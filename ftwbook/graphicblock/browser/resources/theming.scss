@@ -1,0 +1,6 @@
+@include portal-type-font-awesome-icon(ftwbook-graphicblock-graphicblock, pie-chart);
+
+.graphicblock-image img {
+  border: 1px solid $color-gray-dark;
+  padding: $padding-vertical $padding-horizontal;
+}

@@ -1,54 +1,57 @@
 <configure
-      xmlns="http://namespaces.zope.org/zope"
-      xmlns:five="http://namespaces.zope.org/five"
-      xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-      xmlns:i18n="http://namespaces.zope.org/i18n"
-      xmlns:zcml="http://namespaces.zope.org/zcml"
-      i18n_domain="ftwbook.graphicblock">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
+    i18n_domain="ftwbook.graphicblock">
 
-    <!-- include dependencies -->
-    <includeDependencies package="." />
+  <include package="ftw.upgrade" file="meta.zcml" />
 
-    <five:registerPackage package="." initialize=".initialize" />
+  <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
 
-    <i18n:registerTranslations directory="locales" />
+  <include file="lawgiver.zcml" zcml:condition="installed ftw.lawgiver" />
+  <include file="permissions.zcml" />
+  <include package=".browser" />
+  <include package=".latex" />
 
-    <!-- Include the sub-packages that use their own configure.zcml files. -->
-    <include package=".browser" />
-    <include package=".content" />
-    <include package=".latex" />
+  <genericsetup:registerProfile
+      name="default"
+      title="ftwbook.graphicblock"
+      directory="profiles/default"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
-    <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall ftwbook.graphicblock"
+      directory="profiles/uninstall"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      />
 
-    <!-- Register the installation GenericSetup extension profile -->
-    <genericsetup:registerProfile
-          name="default"
-          title="ftwbook.graphicblock"
-          directory="profiles/default"
-          description=""
-          provides="Products.GenericSetup.interfaces.EXTENSION"
-          />
+  <upgrade-step:directory
+      profile="ftwbook.graphicblock:default"
+      directory="upgrades"
+      />
 
-    <!-- Event Subscribers -->
-    <subscriber
-          for=".interfaces.IGraphicBlock
-               zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-          handler=".eventhandlers.create_preview"
-          />
+  <subscriber
+      for=".interfaces.IGraphicBlock
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".subscribers.create_preview"
+      />
 
-    <!-- Graphic converter (for web preview) -->
-    <adapter
-          factory="ftwbook.graphicblock.converter.GraphicConverter"
-          />
+  <subscriber
+      for=".interfaces.IGraphicBlock
+           zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+      handler=".subscribers.create_preview"
+      />
 
-    <adapter
-          name="fallback-converter"
-          factory="ftwbook.graphicblock.converter.FallbackGraphicConverter"
-          />
-
-    <adapter
-          name="application-pdf"
-          factory="ftwbook.graphicblock.converter.PDFConverter"
-          />
+  <adapter factory=".converter.GraphicConverter" />
+  <adapter factory=".converter.FallbackGraphicConverter" name="fallback-converter" />
+  <adapter factory=".converter.PDFConverter" name="application-pdf" />
 
 </configure>

@@ -3,10 +3,11 @@
 # E0213: Method should have "self" as first argument
 
 
+from ftw.book.interfaces import IBookContentType
 from zope.interface import Interface
 
 
-class IGraphicBlock(Interface):
+class IGraphicBlock(IBookContentType):
     """Graphic Block for embedding PDF files into Books"""
 
 

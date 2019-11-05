@@ -1,43 +1,32 @@
-from ftw.builder.testing import BUILDER_LAYER
+from datetime import datetime
+from ftw.book.testing import clear_transmogrifier_registry
+from ftw.builder import Builder
+from ftw.builder import session
+from ftw.builder import ticking_creator
 from ftw.builder.testing import functional_session_factory
-from ftw.builder.testing import set_builder_session_factory
+from ftw.testing import freeze
+from ftw.testing.layer import COMPONENT_REGISTRY_ISOLATION
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
-from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.testing import Layer
 from plone.testing import z2
-from plone.testing import zca
 from zope.configuration import xmlconfig
-import ftw.book.tests.builders
-
-
-class BasicZCMLLayer(Layer):
-    """A basic layer which only sets up the zcml, but does not start a zope
-    instance.
-    """
-
-    defaultBases = (zca.ZCML_DIRECTIVES,)
-
-    def setUp(self):
-        self['configurationContext'] = zca.stackConfigurationContext(
-            self.get('configurationContext'))
-
-        import ftwbook.graphicblock.tests
-        xmlconfig.file('tests.zcml', ftwbook.graphicblock.tests,
-                       context=self['configurationContext'])
-
-    def tearDown(self):
-        del self['configurationContext']
-
-
-BASIC_ZCML_LAYER = BasicZCMLLayer()
-
+import ftw.book.tests.builders  # noqa
+import ftwbook.graphicblock.tests.builders  # noqa
 
 
 class GraphicblockLayer(PloneSandboxLayer):
+    defaultBases = (COMPONENT_REGISTRY_ISOLATION,)
 
-    defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
+    def setUp(self):
+        clear_transmogrifier_registry()
+        session.current_session = functional_session_factory()
+        super(GraphicblockLayer, self).setUp()
+
+    def tearDown(self):
+        session.current_session = None
+        super(GraphicblockLayer, self).tearDown()
+        clear_transmogrifier_registry()
 
     def setUpZope(self, app, configurationContext):
         xmlconfig.string(
@@ -48,18 +37,39 @@ class GraphicblockLayer(PloneSandboxLayer):
             '</configure>',
             context=configurationContext)
 
-        z2.installProduct(app, 'simplelayout.base')
-        z2.installProduct(app, 'ftw.contentpage')
+        z2.installProduct(app, 'ftw.simplelayout')
         z2.installProduct(app, 'ftw.book')
-        z2.installProduct(app, 'ftwbook.graphicblock')
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'ftw.book:default')
         applyProfile(portal, 'ftwbook.graphicblock:default')
+        self['book_path'] = '/'.join(
+            self.create_example_book().getPhysicalPath())
+
+    def create_example_book(self):
+        with freeze(datetime(2016, 10, 31, 9, 52, 34)) as clock:
+            create = ticking_creator(clock, hours=1)
+
+            book = create(
+                Builder('book')
+                .titled(u'The Example Book'))
+            # get_layout_behavior_registration(book)
+
+            introduction = create(Builder('chapter').within(book)
+                                  .titled(u'Introduction'))
+
+            create(Builder('chapter').within(book)
+                   .titled(u'Empty Chapter'))
+
+            create(Builder('graphicblock')
+                   .within(introduction)
+                   .titled(u'Graphicblock')
+                   .having(show_title=True)
+                   .with_file())
+
+        return book
 
 
 GRAPHICBLOCK_FIXTURE = GraphicblockLayer()
 GRAPHICBLOCK_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(GRAPHICBLOCK_FIXTURE,
-           set_builder_session_factory(functional_session_factory)
-           ), name="functional")
+    bases=(GRAPHICBLOCK_FIXTURE, ),
+    name='ftwbook.graphicblock:functional')

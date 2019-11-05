@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-08-09 19:37+0000\n"
+"POT-Creation-Date: 2019-10-28 16:32+0000\n"
 "PO-Revision-Date: 2011-08-09 21:37+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,83 +10,67 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
-#: ./ftwbook/graphicblock/profiles/default/types/GraphicBlock.xml
+#: ./ftwbook/graphicblock/profiles/default/types/ftwbook.graphicblock.GraphicBlock.xml
+#: ./ftwbook/graphicblock/upgrades/20191028104027_migrate_to_dexterity/types/ftwbook.graphicblock.GraphicBlock.xml
 msgid "GraphicBlock"
 msgstr "Grafik Block"
 
 #. Default: "Preview"
-#: ./ftwbook/graphicblock/content/graphicblock.py:42
+#: ./ftwbook/graphicblock/contents/graphicblock.py:34
 msgid "Preview"
 msgstr "Vorschau"
 
+#: ./ftwbook/graphicblock/configure.zcml:34
+msgid "Uninstall ftwbook.graphicblock"
+msgstr "ftwbook.graphicblock deinstallieren"
+
 #. Default: "ERROR: Could not generate PDF preview (Ghostscript error code: ${code})"
-#: ./ftwbook/graphicblock/converter.py:136
+#: ./ftwbook/graphicblock/converter.py:153
 msgid "error_ghostscript_pdf_preview"
 msgstr "FEHLER: Vorschau konnte nicht erstellt werden (Ghostscript Fehler ${code})"
 
-#: ./ftwbook/graphicblock/content/graphicblock.py:33
-msgid "help_file"
-msgstr "Die Datei sollte am besten im PDF-Format vorliegen, um eine optimale Qualität gewährleisten zu könne. Stellen Sie sicher, dass allfällige Schriftarten im PDF eingebettet sind."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:23
-msgid "help_showtitle"
-msgstr "Wenn diese Option angewählt ist erscheint bei dieser Grafik der Titel als Bildunterschrift."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:84
-msgid "help_trim_bottom"
-msgstr "Bild unten abschneiden."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:94
-msgid "help_trim_left"
-msgstr "Bild links abschneiden."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:74
-msgid "help_trim_right"
-msgstr "Bild rechts abschneiden."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:64
-msgid "help_trim_top"
-msgstr "Bild oben abschneiden."
-
-#: ./ftwbook/graphicblock/content/graphicblock.py:54
-msgid "help_width"
-msgstr "Bild skalieren auf % des verfügbaren Platzes (Textbreite auf der Seite)."
+#: ./ftwbook/graphicblock/configure.zcml:26
+msgid "ftwbook.graphicblock"
+msgstr ""
 
 #. Default: "PDF file"
-#: ./ftwbook/graphicblock/content/graphicblock.py:31
+#: ./ftwbook/graphicblock/contents/graphicblock.py:29
 msgid "label_file"
 msgstr "PDF-Datei"
 
-#. Default: "Show title"
-#: ./ftwbook/graphicblock/content/graphicblock.py:21
-msgid "label_showtitle"
-msgstr "Titel anzeigen"
+#. Default: "Show title as legend"
+#: ./ftwbook/graphicblock/contents/graphicblock.py:24
+msgid "label_show_title"
+msgstr "Titel als Bildunterschrift anzeigen"
+
+#. Default: "Title"
+#: ./ftwbook/graphicblock/contents/graphicblock.py:20
+msgid "label_title"
+msgstr "Titel"
 
 #. Default: "Trim bottom (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:82
+#: ./ftwbook/graphicblock/contents/graphicblock.py:53
 msgid "label_trim_bottom"
 msgstr "Unten abschneiden (mm)"
 
 #. Default: "Trim left (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:92
+#: ./ftwbook/graphicblock/contents/graphicblock.py:58
 msgid "label_trim_left"
 msgstr "Links abschneiden (mm)"
 
 #. Default: "Trim right (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:72
+#: ./ftwbook/graphicblock/contents/graphicblock.py:48
 msgid "label_trim_right"
 msgstr "Rechts abschneiden (mm)"
 
 #. Default: "Trim top (mm)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:62
+#: ./ftwbook/graphicblock/contents/graphicblock.py:43
 msgid "label_trim_top"
 msgstr "Oben abschneiden (mm)"
 
-#. Default: "Grapic width (%)"
-#: ./ftwbook/graphicblock/content/graphicblock.py:52
+#. Default: "Graphic width (%)"
+#: ./ftwbook/graphicblock/contents/graphicblock.py:38
 msgid "label_width"
 msgstr "Grafik skalieren (%)"
-
 

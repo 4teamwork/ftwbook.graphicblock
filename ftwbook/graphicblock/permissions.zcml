@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="ftwbook.graphicblock">
+
+  <permission
+      id="ftwbook.graphicblock.GraphicBlock"
+      title="ftwbook.graphicblock: Add GraphicBlock"
+      />
+
+</configure>
