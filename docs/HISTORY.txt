@@ -5,7 +5,7 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Hide graphic blocks from navigation and from search results. [jone]
 
 
 3.0.0 (2019-11-05)
