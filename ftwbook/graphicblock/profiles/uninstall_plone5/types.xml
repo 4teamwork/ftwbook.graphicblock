@@ -1,0 +1,6 @@
+<object name="portal_types" meta_type="Plone Types Tool">
+
+    <object name="ftwbook.graphicblock.GraphicBlock"
+            remove="true"/>
+
+</object>
