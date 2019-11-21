@@ -5,7 +5,7 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Add Plone5 support. [busykoala]
+- Nothing changed yet.
 
 
 3.0.1 (2019-11-08)
