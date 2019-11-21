@@ -1,6 +1,6 @@
 from ftwbook.graphicblock import _
 from ftwbook.graphicblock.interfaces import IGraphicBlock
-from plone.autoform.directives import mode
+from plone.autoform.directives import omitted
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobFile
@@ -29,7 +29,7 @@ class IGraphicBlockSchema(Schema):
         title=_(u'label_file', default=u'PDF file'),
         required=True)
 
-    mode(preview='hidden')
+    omitted('preview')
     preview = NamedBlobImage(
         title=_(u'Preview', default=u'Preview'),
         required=False)

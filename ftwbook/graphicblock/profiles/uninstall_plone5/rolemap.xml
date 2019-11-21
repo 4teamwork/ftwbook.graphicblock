@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<rolemap>
+    <permissions>
+        <permission name="ftwbook.graphicblock: Add GraphicBlock" acquire="True">
+        </permission>
+    </permissions>
+</rolemap>
