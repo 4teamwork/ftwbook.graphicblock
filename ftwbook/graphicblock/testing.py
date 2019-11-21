@@ -4,7 +4,6 @@ from ftw.builder import Builder
 from ftw.builder import session
 from ftw.builder import ticking_creator
 from ftw.builder.testing import functional_session_factory
-from ftw.testing import IS_PLONE_5
 from ftw.testing import freeze
 from ftw.testing.layer import COMPONENT_REGISTRY_ISOLATION
 from plone.app.testing import FunctionalTesting
