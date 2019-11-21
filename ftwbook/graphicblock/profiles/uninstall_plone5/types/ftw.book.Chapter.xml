@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="ftw.book.Chapter">
+
+    <property name="allowed_content_types" purge="false">
+        <element value="ftwbook.graphicblock.GraphicBlock" remove="true" />
+    </property>
+
+</object>
+
