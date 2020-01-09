@@ -20,6 +20,7 @@
   <include package=".latex" />
 
   <genericsetup:registerProfile
+      zcml:condition="not-have plone-5"
       name="default"
       title="ftwbook.graphicblock"
       directory="profiles/default"
@@ -28,9 +29,28 @@
       />
 
   <genericsetup:registerProfile
+      zcml:condition="not-have plone-5"
       name="uninstall"
       title="Uninstall ftwbook.graphicblock"
       directory="profiles/uninstall"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      />
+
+    <genericsetup:registerProfile
+      zcml:condition="have plone-5"
+      name="default"
+      title="ftwbook.graphicblock"
+      directory="profiles/default_plone5"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      zcml:condition="have plone-5"
+      name="uninstall"
+      title="Uninstall ftwbook.graphicblock"
+      directory="profiles/uninstall_plone5"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
       />
