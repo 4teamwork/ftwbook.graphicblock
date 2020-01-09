@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.1.1 (unreleased)
+3.1.1 (2020-01-09)
 ------------------
 
 - Add ftwbook.graphicblock portal_type translation to plone domain. [tinagerber]
