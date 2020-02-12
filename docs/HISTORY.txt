@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.1.2 (unreleased)
+3.1.2 (2020-02-12)
 ------------------
 
 - Fix file download and possible other errors (primary field was not defined) [Nachtalb]
