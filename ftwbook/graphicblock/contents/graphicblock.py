@@ -5,6 +5,7 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobFile
 from plone.namedfile.field import NamedBlobImage
+from plone.supermodel.directives import primary
 from plone.supermodel.model import Schema
 from zope.interface import implementer
 from zope.interface import provider
@@ -25,6 +26,7 @@ class IGraphicBlockSchema(Schema):
         default=False,
         required=False)
 
+    primary('file')
     file = NamedBlobFile(
         title=_(u'label_file', default=u'PDF file'),
         required=True)

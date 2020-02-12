@@ -5,7 +5,7 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix file download and possible other errors (primary field was not defined) [Nachtalb]
 
 
 3.0.1 (2019-11-08)
